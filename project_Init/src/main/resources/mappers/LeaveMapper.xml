@@ -35,8 +35,7 @@
 		UPDATE leave_management
 		SET leave_type = #{leave_type},
 		leave_start_date = #{leave_start_date},
-		end_leave_date = #{end_leave_date},
-		t_leave = #{t_leave},
+		end_leave_date = #{end_leave_date},		
 		annual_leave =
 		#{annual_leave},
 		annual_leave_start_date = #{annual_leave_start_date},
@@ -50,12 +49,7 @@
 		approval_date = #{approval_date},
 		reason = #{reason},
 		requested_at = #{requested_at},
-		total_leave_days = #{total_leave_days},
-		used_leave = #{used_leave},
-		remaining_leave = #{remaining_leave}
-
-
-
+		total_leave_days = #{total_leave_days}
 		WHERE
 		leave_id = #{leave_id}
 	</update>
@@ -75,7 +69,6 @@
 		lm.emp_id,
 		lm.leave_type,
 		lm.leave_start_date,
-		lm.t_leave,
 		lm.annual_leave,
 		lm.annual_leave_start_date,
 		lm.end_annual_leave,
@@ -91,9 +84,7 @@
 		lm.approval_date,
 		lm.reason,
 		lm.requested_at,
-		lm.total_leave_days,
-		lm.used_leave,
-		lm.remaining_leave
+		lm.total_leave_days
 		FROM leave_management lm
 		INNER JOIN
 		employee e ON lm.emp_id = e.emp_id
@@ -186,10 +177,7 @@
 		total_annual_leave,
 		used_annual_leave ,
 		remaining_annual_leave ,
-		total_leave_days ,
-		used_leave ,
-		remaining_leave
-		,
+		total_leave_days ,	
 		leave_type ,
 		leave_start_date ,
 		end_leave_date,

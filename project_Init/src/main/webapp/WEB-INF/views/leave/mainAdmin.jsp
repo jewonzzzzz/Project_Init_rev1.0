@@ -254,7 +254,11 @@
                             <option value="연차">연차</option>
                             <option value="병가">병가</option>
                             <option value="출산휴가">출산휴가</option>
-                            <option value="예비군">예비군</option>
+                            <option value="특별휴가">특별휴가</option>
+                            <option value="하계휴가">하계휴가</option>
+                            <option value="육아휴직">육아휴직</option>
+                            <option value="병가휴직">병가휴직</option>
+                            <option value="기타사유">기타사유</option>
                         </select>
                     </div>
                     
@@ -294,9 +298,7 @@
 						    <label for="modalRemainingAnnualLeaveInput">잔여 연차 일수</label>
 						    <input type="number" id="modalRemainingAnnualLeaveInput" class="form-control">
 						</div>
-
-                    
-                    
+						
                     
                         <div class="form-group">
                         <label for="modalLeaveStatusInput">상태</label>
@@ -306,7 +308,11 @@
                             <option value="-1">반려</option>
                         </select>
                     </div>
-                    
+                     
+                     <div class="form-group">
+							  <label for="modalRequestedAtInput">신청 일자</label>
+							  <input type="date" class="form-control" id="modalRequestedAtInput" placeholder="yyyy-MM-dd" required>
+							</div>
                     
                     
                     <div class="form-group">
@@ -396,7 +402,8 @@ $(document).ready(function() {
                             "data-annual-leave-start-date='" + leave.annual_leave_start_date + "' " +
                             "data-end-annual-leave='" + leave.end_annual_leave + "' " +
                             "data-total-annual-leave='" + leave.total_annual_leave + "' " +
-                            
+                            "data-requested-at='" + leave.requested_at + "' " +
+                           
                             "data-remaining-annual-leave='" + leave.remaining_annual_leave + "' " +
                             "data-leave-status='" + leave.leave_status + "' " +
                             "data-reason='" + leave.reason + "' " +
@@ -429,9 +436,8 @@ $("#checkLeavesButton").click(function() {
         
        
         $("#modalTotalLeaveDaysInput").val($(this).data('total-leave-days')); // 총 휴가일수
-        
-      
 
+        $("#modalRequestedAtInput").val($(this).data('requested-at'));
         $("#modalAnnualLeaveStartDateInput").val($(this).data('annual-leave-start-date'));
         $("#modalEndAnnualLeaveInput").val($(this).data('end-annual-leave'));
         $("#modalTotalAnnualLeaveInput").val($(this).data('total-annual-leave'));
@@ -452,14 +458,12 @@ $("#checkLeavesButton").click(function() {
             leave_type: $("#modalLeaveTypeInput").val(),
             leave_start_date: $("#modalLeaveStartDateInput").val(),
             end_leave_date: $("#modalEndLeaveDateInput").val(),
-            t_leave: $("#modalTLeaveInput").val(),
-            total_leave_days: $("#modalTotalLeaveDaysInput").val(), // 총 휴가 일수
-            used_leave: $("#modalUsedLeaveInput").val(), // 사용된 휴가 일수
-            remaining_leave: $("#modalRemainingLeaveInput").val(), // 남은 휴가 일수
+            total_leave_days: $("#modalTotalLeaveDaysInput").val(), // 총 휴가 일수          
             annual_leave_start_date: $("#modalAnnualLeaveStartDateInput").val(),
             end_annual_leave: $("#modalEndAnnualLeaveInput").val(),
             total_annual_leave: $("#modalTotalAnnualLeaveInput").val(),
             used_annual_leave: $("#modalUsedAnnualLeaveInput").val(),
+            requested_at: $("#modalRequestedAtInput").val(),
             remaining_annual_leave: $("#modalRemainingAnnualLeaveInput").val(),
             leave_status: $("#modalLeaveStatusInput").val(),
             reason: $("#modalReasonInput").val()

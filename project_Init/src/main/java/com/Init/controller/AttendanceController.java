@@ -186,7 +186,7 @@ public class AttendanceController {
 			attendanceData.put("new_check_out", formatTimestamp(attendance.getNew_check_out()));
 			attendanceData.put("new_workingoutside_time", formatTimestamp(attendance.getNew_WorkingOutside_time()));
 			attendanceData.put("modified_time", formatTimestamp(attendance.getModified_time()));
-			attendanceData.put("created_at", formatTimestamp(attendance.getCreated_at()));
+			
 
 			// 원본 데이터 추가
 			attendanceData.put("attendance_id", attendance.getAttendance_id());
@@ -200,13 +200,13 @@ public class AttendanceController {
 			attendanceData.put("modified_reason", attendance.getModified_reason());
 			attendanceData.put("modified_person", attendance.getModified_person());
 			attendanceData.put("workform_status", attendance.getWorkform_status());
-
-			// 날짜 데이터 포맷팅
+			
 			attendanceData.put("businessDate", formatDate(attendance.getBusinessDate()));
 			attendanceData.put("business_endDate", formatDate(attendance.getBusiness_endDate()));
 			attendanceData.put("educationDate", formatDate(attendance.getEducationDate()));
 			attendanceData.put("education_endDate", formatDate(attendance.getEducation_endDate()));
-
+			attendanceData.put("created_at", formatDate(attendance.getCreated_at()));
+			
 			attendanceDataList.add(attendanceData);
 		}
 
@@ -350,5 +350,6 @@ public class AttendanceController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("신청 처리 중 오류가 발생했습니다.");
 		}
 	}
+	
 
 }

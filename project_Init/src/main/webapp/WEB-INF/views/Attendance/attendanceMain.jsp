@@ -1205,12 +1205,10 @@ $(document).ready(function() {
                 // 출근 시간 문자열을 Date 객체로 변환
                 var checkInTime = new Date(attendance.check_in);
                 // 한국 시간 (UTC+9)으로 변환
-                checkInTime.setHours(checkInTime.getHours() + 9);
+               
 
                 var checkOutTime = attendance.check_out ? new Date(attendance.check_out) : null; // 퇴근 시간이 있을 경우만 변환
-                if (checkOutTime) {
-                    checkOutTime.setHours(checkOutTime.getHours() + 9);
-                }
+             
 
                 var workStatus = determineWorkStatus(checkInTime, checkOutTime); // 근무 상태 결정
 

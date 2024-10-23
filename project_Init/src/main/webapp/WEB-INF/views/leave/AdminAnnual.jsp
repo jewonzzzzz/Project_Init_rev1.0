@@ -128,8 +128,9 @@
                             response.forEach(function(leave) {
                                 // 입사일과 조정일을 날짜 형식으로 변환
                                 var startDate = formatDate(leave.emp_start_date); // 사원의 입사일
-                                var adjustmentDate = formatDate(leave.adjustmentDate); // 조정일
-
+                               
+								
+                              
                                 $('#annualLeaveList').append(
                                     '<tr>' +
                                         '<td>' + startDate + '</td>' + // 사원의 입사일
@@ -138,7 +139,7 @@
                                         '<td>' + leave.used_annual_leave + '</td>' +
                                         '<td>' + leave.remaining_annual_leave + '</td>' +
                                         '<td>' + leave.lgrant + '</td>' + // 
-                                        '<td>' + adjustmentDate + '</td>' + // 조정일
+                                        '<td>' + leave.adjustmentDate + '</td>' + // 조정일
                                         '<td><button class="btn btn-success createLeaveButton" data-emp-id="' + leave.emp_id + '">연차 생성</button></td>' + // 연차 생성 버튼
                                     '</tr>'
                                 );
@@ -181,6 +182,7 @@
         var date = new Date(dateString);
         return date.toISOString().split('T')[0]; // "YYYY-MM-DD" 형식으로 변환
     }
+    
 </script>
 
 
