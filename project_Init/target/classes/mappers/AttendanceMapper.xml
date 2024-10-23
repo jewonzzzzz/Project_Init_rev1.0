@@ -141,6 +141,7 @@
 		night_work_time = #{night_work_time},
 		special_working_time = #{special_working_time},
 		modified_reason = #{modified_reason},
+		created_at =#{created_at},
 		modified_time = #{modified_time},
 		businessDate = #{businessDate},
 		business_endDate = #{business_endDate},

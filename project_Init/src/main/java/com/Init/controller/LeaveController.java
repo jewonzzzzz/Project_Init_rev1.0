@@ -191,5 +191,6 @@ public class LeaveController {
 		}
 		return leaveList; // LeaveVO 리스트를 JSON으로 반환
 	}
+	
 
 }

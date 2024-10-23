@@ -178,7 +178,7 @@
                         <th>출장 종료 날짜</th>
                         <th>교육 시작 날짜</th>
                         <th>교육 종료 날짜</th>                   
-                        <th>신청 이유</th>
+                        <th>수정 이유</th>
                         <th>수정인</th>
                         <th>수정</th>
                         <th>삭제</th>
@@ -250,26 +250,30 @@
                             </div>
                             <div class="form-group">
                                 <label for="modalModifiedTimeInput">수정 일자</label>
-                                <input type="text" class="form-control" id="modalModifiedTimeInput" placeholder="yyyy-MM-dd HH:mm:ss">
+                                <input type="text" class="form-control" id="modalModifiedTimeInput" placeholder="yyyy-MM-dd HH:mm:ss" >
                             </div>
-                            <div class="form-group">
-                                <label for="modalCreatedAtInput">신청 일자</label>
-                                <input type="text" class="form-control" id="modalCreatedAtInput" placeholder="yyyy-MM-dd HH:mm:ss" readonly>
-                            </div>
+                           <div class="form-group">
+							  <label for="modalCreatedAtInput">신청 일자</label>
+							  <input type="date" class="form-control" id="modalCreatedAtInput" placeholder="yyyy-MM-dd" required>
+							</div>
                             <div class="form-group">
                                 <label for="modalStatusInput">상태</label>
-                                <input type="text" class="form-control" id="modalStatusInput">
+                                <select class="form-control" id="modalStatusInput" name="status">
+		                                <option value="1">승인</option>
+		                            <option value="0">진행중</option>
+		                            <option value="-1">반려</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="modalOvertimeInput">초과 근무</label>
-                                <input type="text" class="form-control" id="modalOvertimeInput">
-                            
+                                <input type="text" class="form-control" id="modalOvertimeInput">                          
                             </div>
                             
                     <div class="form-group">
                         <label for="modalBusinessDateInput">출장 시작 날짜</label>
                         <input type="date" class="form-control" id="modalBusinessDateInput" placeholder="yyyy-MM-dd" required>
                     </div>
+                    
                     <div class="form-group">
                         <label for="modalBusinessEndDateInput">출장 종료 날짜</label>
                         <input type="date" class="form-control" id="modalBusinessEndDateInput" placeholder="yyyy-MM-dd" required>
@@ -285,7 +289,7 @@
                             
                             
                             <div class="form-group">
-                                <label for="modalModifiedReasonInput">신청 사유</label>
+                                <label for="modalModifiedReasonInput">수정 사유</label>
                                 <input type="text" class="form-control" id="modalModifiedReasonInput">
                             </div>
                             <div class="form-group">
@@ -294,8 +298,8 @@
                             </div>
                             
 		                               <div class="form-group">
-		                    <label for="modalWorkStatusInput">근무 상태</label>
-		                    <input type="text" class="form-control" id="modalWorkStatusInput" placeholder="근무 상태를 입력하세요" /> <!-- 근무 상태 추가 -->
+		                    <label for="modalWorkformStatusInput">근무 상태</label>
+		                    <input type="text" class="form-control" id="modalWorkformStatusInput" placeholder="근무 상태를 입력하세요" /> <!-- 근무 상태 추가 -->
 		                </div>
                             
                        
@@ -407,7 +411,7 @@
                             	        "data-education-endDate='" + attendance.education_endDate + "' " +
                             	        "data-modified-reason='" + attendance.modified_reason + "' " +
                             	        "data-modified-person='" + attendance.modified_person + "' " +
-                            	        "data-work-status='" + attendance.workform_status + "'>" + 
+                            	        "data-workform-status='" + attendance.workform_status + "'>" + 
                             	        "수정</button>" +
                             	    "</td>" +
                             	    "<td>" +
@@ -473,14 +477,11 @@
         $("#modalModifiedTimeInput").val($(this).data("modified-time"));
         $("#modalCreatedAtInput").val($(this).data("created-at"));
         $("#modalStatusInput").val($(this).data("status"));
-        $("#modalOvertimeInput").val($(this).data("overtime"));
-        
+        $("#modalOvertimeInput").val($(this).data("overtime"));      
         $("#modalBusinessDateInput").val($(this).data("businessDate"));
         $("#modalBusinessEndDateInput").val($(this).data("business-endDate"));
         $("#modalEducationDateInput").val($(this).data("educationDate"));
         $("#modalEducationEndDateInput").val($(this).data("education-endDate"));
-        
-        
         $("#modalModifiedReasonInput").val($(this).data("modified-reason"));
         $("#modalModifiedPersonInput").val($(this).data("modified-person"));
         $("#modalWorkformStatusInput").val($(this).data("workform-status")); // 근무 상태 추가
@@ -507,13 +508,10 @@
                var createdAt = $("#modalCreatedAtInput").val();
                var status = $("#modalStatusInput").val();
                var overtime = $("#modalOvertimeInput").val();
-               
-               var businessDate = $("modalBusinessDateInput").val();
+               var businessDate = $("#modalBusinessDateInput").val();
                var businessEndDate = $("#modalBusinessEndDateInput").val();
                var educationDate = $("#modalEducationDateInput").val();
                var educationEndDate = $("#modalEducationEndDateInput").val();
-               
-               
                var modifiedReason = $("#modalModifiedReasonInput").val();
                var modifiedPerson = $("#modalModifiedPersonInput").val();
                var workformStatus = $("#modalWorkformStatusInput").val(); // 근무 상태 추가
@@ -539,13 +537,11 @@
 					        modified_time: modifiedTime,
 					        created_at: createdAt,
 					        status: status,					        
-					        overtime: overtime,
-					        
+					        overtime: overtime,  
 					        businessDate : businessDate,
 					        business_endDate : businessEndDate,
 					        educationDate: educationDate,
 					        education_endDate: educationEndDate,
-					        
 					        modified_reason: modifiedReason,
 					        modified_person: modifiedPerson,
 					        workform_status: workformStatus // 근무 상태 추가
