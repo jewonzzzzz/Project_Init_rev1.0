@@ -156,13 +156,57 @@
                   </ul>
                 </div>
               </li>
+              
               <li class="nav-item">
-                <a href="widgets.html">
-                  <i class="fas fa-desktop"></i>
-                  <p>Widgets</p>
-                  <span class="badge badge-success">4</span>
+               <a data-bs-toggle="collapse" href="#attendance">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                  <p>근태관리</p>
+                   <span class="caret"></span>
                 </a>
+                 <div class="collapse" id="attendance">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="/Attendance/attendanceMain">
+                        <span class="sub-item">나의 근태관리</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/Attendance/attendanceAdmin">
+                        <span class="sub-item">근태관리(어드민)</span>
+                      </a>
+                    </li>               
+                  </ul>
+                </div>
               </li>
+                 
+                  <li class="nav-item">
+               <a data-bs-toggle="collapse" href="#leave">
+                  <i class="fas fa-calculator"></i>
+                  <p>휴가관리</p>
+                   <span class="caret"></span>
+                </a>
+                 <div class="collapse" id="leave">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="/leave/main">
+                        <span class="sub-item">나의 휴가관리</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/leave/mainAdmin">
+                        <span class="sub-item">휴가관리(어드민)</span>
+                      </a>
+                    </li>
+                     <li>
+                      <a href="/leave/AdminAnnual">
+                        <span class="sub-item">연차조회/생성(어드민)</span>
+                      </a>
+                    </li>                 
+                  </ul>
+                </div>
+              </li>
+              
+              
               <li class="nav-item">
                 <a href="../../documentation/index.html">
                   <i class="fas fa-file"></i>
