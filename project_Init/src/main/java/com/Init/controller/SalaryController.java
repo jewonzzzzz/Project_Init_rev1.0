@@ -108,7 +108,7 @@ public class SalaryController {
 	public String calSalary(Model model, HttpSession session){
 		logger.debug("calSalary(Model model) 실행");
 		
-		session.setAttribute("emp_id", "user31"); //테스트용 삭제해야됨
+		//session.setAttribute("emp_id", "user31"); //테스트용 삭제해야됨
 		
 		// 급여내역리스트 가져오기
 		List<CalSalaryListVO> calSalaryList = sService.getCalSalaryList();

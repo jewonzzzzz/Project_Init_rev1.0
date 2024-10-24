@@ -123,10 +123,14 @@ public class EvalController {
 		// 성과리스트 정보 가져가기
 		EvalVO evalReportInfo = evService.getEvalInfoForView(eval_id);
 		
+		String emp_id = (String)session.getAttribute("emp_id");
+		
 		// 성과 작성내역이 있으면 정보 가져와서 출력하기
 		EvalVO vo = new EvalVO();
 		vo.setEval_id(eval_id);
-		vo.setEmp_id((String)session.getAttribute("emp_id"));
+		vo.setEmp_id(emp_id);
+		
+		logger.debug("");
 		
 		EvalVO evalHisReportInfo = evService.getHisEvaReport(vo);
 		if(evalHisReportInfo == null) {
