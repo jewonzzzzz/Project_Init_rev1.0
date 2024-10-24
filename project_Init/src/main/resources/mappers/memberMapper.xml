@@ -147,7 +147,7 @@
         where emp_id = #{emp_id}
     )
     limit 1
-</insert>
+	</insert>
 
 	
 	<!-- 관리자 수정 -->
