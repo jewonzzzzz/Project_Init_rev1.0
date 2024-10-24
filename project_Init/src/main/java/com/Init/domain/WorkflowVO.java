@@ -16,9 +16,9 @@ public class WorkflowVO {
 	
 	private String wf_code;  // getUserid();
 	private String wf_type;
+	private String wf_target;
 	private String wf_title;
 	private String wf_content;
-	private String wf_target;
 	private Timestamp wf_create_date;
 	private String wf_file;
 	private String wf_progress;
