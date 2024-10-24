@@ -10,7 +10,7 @@
 				<div class="card" style="margin:0px; display:flex; flex-direction: column;">
 					<div style="display:flex; background-color: rgba(0,0,0,0.1); flex:1; justify-content: flex-end; padding:10px;">
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
+					</div> 
 					<!-- card body start -->
 					<div class="card-body" style="background-color: rgba(0,0,0,0.1); flex:99; height:600px !important; display:flex; flex-direction: column;">
 						<div class="form-group" style= "display: flex; flex:1; flex-direction:column;">
