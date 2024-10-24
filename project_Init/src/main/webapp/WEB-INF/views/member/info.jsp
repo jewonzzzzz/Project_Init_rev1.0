@@ -247,8 +247,18 @@
 									<tr>
 										<td colspan="2" rowspan="4" style="width: 8%;">
 											<div class="profile-pic-container">
-												<img src="${memberVO.emp_profile}" alt="증명사진"
-													style="max-width: 150px; height: auto;" />
+											    <c:choose>
+											        <c:when test="${empty memberVO.emp_profile || memberVO.emp_profile eq 'void'}">
+											            <img src="${pageContext.request.contextPath}/resources/assets/img/profile-default.png" 
+											                 alt="기본 증명사진"
+											                 style="max-width: 150px; height: auto;" />
+											        </c:when>
+											        <c:otherwise>
+											            <img src="${memberVO.emp_profile}" 
+											                 alt="증명사진"
+											                 style="max-width: 150px; height: auto;" />
+											        </c:otherwise>
+											    </c:choose>
 											</div>
 										</td>
 										<th>사원번호</th>

@@ -112,10 +112,7 @@ public class MemberDAOImpl implements MemberDAO{
 	
 	@Override
 	public MemberVO getMember(String emp_id) {
-	    logger.debug("DAO: getMember 실행, emp_id: {}", emp_id);  // 파라미터 값 확인
-	    MemberVO result = sqlSession.selectOne(NAMESPACE+".getMember", emp_id);
-	    logger.debug("DAO: 조회 결과: {}", result);  // 조회 결과 확인
-	    return result;
+	    return sqlSession.selectOne(NAMESPACE + ".getMember", emp_id);
 	}
 	
 	@Override

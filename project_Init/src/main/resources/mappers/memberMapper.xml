@@ -111,11 +111,11 @@
     </delete>
   	
   	<!-- 회원정보 조회 -->
-	<select id="getMember" resultType="MemberVO">
-	    /* 회원 정보 조회 */
-	    SELECT * FROM employee
-	    WHERE emp_id = #{emp_id}
-	    ORDER BY approval ASC
+	<select id="getMember" parameterType="String" resultType="MemberVO">
+	    SELECT * 
+	    FROM employee 
+	    WHERE emp_id = #{emp_id} 
+	    AND approval = 0
 	    LIMIT 1
 	</select>
   	
@@ -148,6 +148,7 @@
 	    UPDATE employee 
 	    SET approval = approval + 1
 	    WHERE emp_id = #{emp_id}
+	    AND emp_status = '재직'
 	    ORDER BY approval DESC
 	</update>
 
