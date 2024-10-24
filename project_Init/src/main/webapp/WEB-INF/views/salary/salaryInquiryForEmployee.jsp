@@ -87,7 +87,7 @@
                             name="year"
                           >
                           </select>
-                          <input type="hidden" id="emp_id" value="${emp_id }">
+                          <input type="hidden" id="emp_id_salary" value="${emp_id }">
                     </div>
                 <div class="card">
                   <div class="card-header">
@@ -137,7 +137,8 @@
             // 첫화면 로드 시 최근 연도에 대한 급여정보 가져오기
             	var checkSalaryInfo = [];
             	checkSalaryInfo.push($('#yearSelect').val());
-            	checkSalaryInfo.push($('#emp_id').val());
+            	checkSalaryInfo.push($('#emp_id_salary').val());
+            	console.log(checkSalaryInfo);
             	$.ajax({
             		url:'/salary/getSalaryInquiryForEmployee',
             		type: 'POST',
@@ -169,7 +170,8 @@
             $('#yearSelect').change(function(event){
             	var checkSalaryInfo = [];
             	checkSalaryInfo.push($('#yearSelect').val());
-            	checkSalaryInfo.push($('#emp_id').val());
+            	checkSalaryInfo.push($('#emp_id_salary').val());
+            	console.log(checkSalaryInfo);
             	$.ajax({
             		url:'/salary/getSalaryInquiryForEmployee',
             		type: 'POST',
