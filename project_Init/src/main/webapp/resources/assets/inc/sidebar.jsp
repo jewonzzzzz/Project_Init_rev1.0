@@ -57,7 +57,47 @@
                 </span>
                 <h4 class="text-section">Components</h4>
               </li>
-              
+              <li class="nav-item">
+               <a data-bs-toggle="collapse" href="#insa">
+                <i class="fas fa-home"></i>
+                  <p>인사관리</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="insa">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="/member/main">
+                        <span class="sub-item">메인페이지</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/member/info">
+                        <span class="sub-item">내정보</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/member/list">
+                        <span class="sub-item">사원목록</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/member/org/chart">
+                        <span class="sub-item">조직도</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/member/quit">
+                        <span class="sub-item">퇴직신청</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/member/manager">
+                        <span class="sub-item">사원관리(관리자 페이지)</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class="fas fa-calculator"></i>
@@ -205,7 +245,6 @@
                   </ul>
                 </div>
               </li>
-              
               
               <li class="nav-item">
                 <a href="../../documentation/index.html">
