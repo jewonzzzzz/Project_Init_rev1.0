@@ -142,6 +142,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    @Transactional
 	public int memberUpdate(MemberVO uvo) {
 		logger.debug("memberUpdate(MemberVO uvo) 실행");
 		
@@ -153,11 +154,14 @@ public class MemberServiceImpl implements MemberService {
 	    }
 		
 		// 회원정보 수정
-		int result = mdao.updateMember(uvo);
-		// 회원정보 수정 이력
-		mdao.insertHisMember(uvo);
 		
-		return result;
+	    if(mdao.updateMember(uvo) == 1) {
+	    	mdao.insertHisMember(uvo);
+	    }
+		
+		
+		// 회원정보 수정 이력
+		return 0;
 	}
 
     @Override
