@@ -65,37 +65,15 @@
           <%@ include file="/resources/assets/inc/navbar.jsp" %>
         </div>
         <div class="container">
-          <div class="page-inner" style="background-color : rgba(250,250,250,0.7);  height: 90vh; display:flex; flex-direction:column; justify-content: space-between; align-content: flex-end;">
+          <div class="page-inner" style="background-color : rgba(250,250,250,0.7); padding-top:10px; height: 90vh; display:flex; flex-direction:column; justify-content: space-between; align-content: flex-end;">
 <!------------------------------------------------------------------------------------------------------------------>
 <!-- header start -->
-<div class="header-box" style="display:flex; width: 100%; flex:0.1; box-sizing: border-box;">
-	<div class="page-header" style="flex:0.4;">
-	  <h3 class="fw-bold mb-3">HOME</h3>
-	  <ul class="breadcrumbs mb-3">
-	    <li class="nav-home">
-	      <a href="#">
-	        <i class="icon-home"></i>
-	      </a>
-	    </li>
-	    <li class="separator">
-	      <i class="icon-arrow-right"></i>
-	    </li>
-	    <li class="nav-item">
-	      <a href="#">Something</a>
-	    </li>
-	    <li class="separator">
-	      <i class="icon-arrow-right"></i>
-	    </li>
-	    <li class="nav-item">
-	      <a href="#">something</a>
-	    </li>
-	  </ul>
-	</div>
+<div class="header-box" style="display:flex; width: 100%; flex:0.05; box-sizing: border-box; justify-content: flex-end;">
 	<div style="display: flex; flex:0.6; justify-content: flex-end;">
 		<div class="card-box button ${empty settingVO.tool_name_1 ? 'extend_user_setting' : ''}">
 			<div class="card">
 				<div class="card-body">
-					<a style="display:flex; justify-content:center; align-items: center; font-size:20px;" href="${empty settingVO.tool_url_1 ? '#' : settingVO.tool_url_1}">
+					<a class="tool_name" style="display:flex; justify-content:center; align-items: center;" href="${empty settingVO.tool_url_1 ? '#' : settingVO.tool_url_1}">
 						${empty settingVO.tool_name_1 ? '+' : settingVO.tool_name_1}
 					</a>
 				</div>
@@ -104,7 +82,7 @@
 		<div class="card-box button ${empty settingVO.tool_name_2 ? 'extend_user_setting' : ''}">
 			<div class="card">
 				<div class="card-body">
-					<a style="display:flex; justify-content:center; align-items: center; font-size:20px;" href="${empty settingVO.tool_url_2 ? '#' : settingVO.tool_url_2}">
+					<a class="tool_name" style="display:flex; justify-content:center; align-items: center;" href="${empty settingVO.tool_url_2 ? '#' : settingVO.tool_url_2}">
 						${empty settingVO.tool_name_2 ? '+' : settingVO.tool_name_2}
 					</a>
 				</div>
@@ -113,7 +91,7 @@
 		<div class="card-box button ${empty settingVO.tool_name_3 ? 'extend_user_setting' : ''}">
 			<div class="card">
 				<div class="card-body">
-					<a style="display:flex; justify-content:center; align-items: center; font-size:20px;" href="${empty settingVO.tool_url_3 ? '#' : settingVO.tool_url_3}">
+					<a class="tool_name" style="display:flex; justify-content:center; align-items: center;" href="${empty settingVO.tool_url_3 ? '#' : settingVO.tool_url_3}">
 						${empty settingVO.tool_name_3 ? '+' : settingVO.tool_name_3}
 					</a>
 				</div>
@@ -122,7 +100,7 @@
 		<div class="card-box button ${empty settingVO.tool_name_4 ? 'extend_user_setting' : ''}">
 			<div class="card">
 				<div class="card-body">
-					<a style="display:flex; justify-content:center; align-items: center; font-size:20px;" href="${empty settingVO.tool_url_4 ? '#' : settingVO.tool_url_4}">
+					<a class="tool_name" style="display:flex; justify-content:center; align-items: center;" href="${empty settingVO.tool_url_4 ? '#' : settingVO.tool_url_4}">
 						${empty settingVO.tool_name_4 ? '+' : settingVO.tool_name_4}
 					</a>
 				</div>
@@ -134,14 +112,15 @@
 			</button>
 			<!-- 설정창 -->
 			<div id = "user_setting" class="card-box" style="display:none;">
-				<div class="card" style="width:95%; height:96%; display:flex; flex-direction: column; justify-content: flex-start; align-content: center;">
+				<div class="card" style="width:97%; height:97%; display:flex; flex-direction: column; justify-content: flex-start; align-content: center;">
 					<div style="display:flex; flex-direction: column; flex:0.5; width:100%;">
 						<div style="display:flex; flex:1; width:100%;">
-							<div style="display:flex; flex:0.5; width:100%; justify-content: flex-start; align-content: center;">
-								<div id="tool_1" data-tool_id="${settingVO.tool_id_1}" class="card-box button" style="margin-left:5px; margin-right:5px;">
+						
+							<div style="display:flex; flex:0.5; width:100%; justify-content: center; align-items: center;">
+								<div id="tool_1" data-tool_id="${settingVO.tool_id_1}" class="card-box button tools" style="margin-left:5px; margin-right:5px; display:flex; justify-content: center; align-content: center;">
 									<div class="card">
 										<div class="card-body">
-												<div class="tool_name" style="display:flex; justify-content:center; align-items: center; font-size:20px;">${settingVO.tool_name_1}</div>
+											<div class="tool_name" style="display:flex; justify-content:center; align-items: center;">${settingVO.tool_name_1}</div>
 										</div>
 									</div>
 								</div>
@@ -152,11 +131,11 @@
 								</div>
 							</div>
 							
-							<div style="display:flex; flex:0.5; width:100%; justify-content: flex-start; align-content: center;">
-								<div id="tool_2" data-tool_id="${settingVO.tool_id_2}" class="card-box button" style="margin-left:5px; margin-right:5px;">
+							<div style="display:flex; flex:0.5; width:100%; justify-content: center; align-items: center;">
+								<div id="tool_2" data-tool_id="${settingVO.tool_id_2}" class="card-box button" style="margin-left:5px; margin-right:5px; display:flex; justify-content: center; align-content: center;">
 									<div class="card">
 										<div class="card-body">
-												<div class="tool_name" style="display:flex; justify-content:center; align-items: center; font-size:20px;">${settingVO.tool_name_2}</div>
+											<div class="tool_name" style="display:flex; justify-content:center; align-items: center;">${settingVO.tool_name_2}</div>
 										</div>
 									</div>
 								</div>
@@ -166,13 +145,14 @@
 									</button>
 								</div>
 							</div>
+							
 						</div>
 						<div style="display:flex; flex:1; width:100%;">
-							<div style="display:flex; flex:0.5; width:100%; justify-content: flex-start; align-content: center;">
-								<div id="tool_3" data-tool_id="${settingVO.tool_id_3}" class="card-box button" style="margin-left:5px; margin-right:5px;">
+							<div style="display:flex; flex:0.5; width:100%; justify-content: center; align-items: center;">
+								<div id="tool_3" data-tool_id="${settingVO.tool_id_3}" class="card-box button" style="margin-left:5px; margin-right:5px; display:flex; justify-content: center; align-content: center;">
 									<div class="card">
 										<div class="card-body">
-												<div class="tool_name" style="display:flex; justify-content:center; align-items: center; font-size:20px;">${settingVO.tool_name_3}</div>
+											<div class="tool_name" style="display:flex; justify-content:center; align-items: center;">${settingVO.tool_name_3}</div>
 										</div>
 									</div>
 								</div>
@@ -182,11 +162,11 @@
 									</button>
 								</div>
 							</div>
-							<div style="display:flex; flex:0.5; width:100%; justify-content: flex-start; align-content: center;">
-								<div id="tool_4" data-tool_id="${settingVO.tool_id_4}" class="card-box button" style="margin-left:5px; margin-right:5px;">
+							<div style="display:flex; flex:0.5; width:100%; justify-content: center; align-items: center;">
+								<div id="tool_4" data-tool_id="${settingVO.tool_id_4}" class="card-box button" style="margin-left:5px; margin-right:5px; display:flex; justify-content: center; align-content: center;">
 									<div class="card">
 										<div class="card-body">
-												<div class="tool_name" style="display:flex; justify-content:center; align-items: center; font-size:20px;">${settingVO.tool_name_4}</div>
+											<div class="tool_name" style="display:flex; justify-content:center; align-items: center;">${settingVO.tool_name_4}</div>
 										</div>
 									</div>
 								</div>
@@ -235,11 +215,11 @@
 </div>
 <!-- header end -->
 <!-- contents start -->
-<div class="contents-box" style="display:flex; flex-direction:column; justify-content: space-between; width: 100%; box-sizing: border-box; flex:0.9;">
+<div class="contents-box" style="display:flex; flex-direction:column; justify-content: space-between; width: 100%; box-sizing: border-box; flex:0.95; ">
 	
 	<!-- 중단 -->
-	<div style="flex:0.2; display: flex; justify-content: space-between; align-content: center; margin-top: 10px;">
-		<div style="flex:0.3;">
+	<div style="flex:0.2; display: flex; justify-content: space-between; align-content: center; margin-top: 10px; ">
+		<div style="flex:0.3; position: relative; top:-20px;">
 			<div id="main-notify-box" style="width:100%; height:100%; display:flex; flex-direction:column;">
 				<div class="main-box-title">
 					<div class="run">
@@ -252,7 +232,7 @@
 				</div>
 			</div>		
 		</div>
-		<div style="flex:0.3;">
+		<div style="flex:0.3; position: relative; top:-20px;">
 			<div id="main-board-box" style="width:100%; height:100%; display:flex; flex-direction:column;">
 				<div class="main-box-title">
 					<div style="box-shadow: 2px 0px 2px 1px rgba(0, 0, 0, 0.4);">교육 일정</div>
@@ -265,7 +245,7 @@
 			</div>	
 		</div>
 		<div style="flex:0.25;">
-			<div class="card-box" style="width:100%; height:130%;">
+			<div class="card-box" style="width:100%; height:200px;">
 				<div class="card" style="width:96%; height:94%;">
 					<div id="main-info-box" style="width:100%; height:100%; display:flex; flex-direction:column;">
 						<div style="width:100%; height:100%; display:flex; flex-direction:column;">
@@ -322,15 +302,14 @@
 	
 		<%@ include file="/resources/assets/inc/messenger.jsp" %>
 		
-		<div class="col-md-4" style="display:flex; flex-direction:column; justify-content: flex-end;  align-content: flex-end;">
-			<div class="card-box md">
-				<div class="card">
-					<div class="card-header">
-					<h4 class="card-title">WORKFLOWS</h4>
-					</div>	
-					<div class="card-body">
-                    <div class="workflow_table" style="height:500px; overflow-y: auto; overflow-x: hidden;">
-                      <table class="display table table-striped table-hover multi-filter-select">
+		<div class="card-box md" style="height:530px !important; width:550px; display:flex; flex-direction: column;">
+			<div class="card">
+				<div class="card-header" style="flex:0.1;">
+				<h4 class="card-title">WORKFLOWS</h4>
+				</div>	
+				<div class="card-body" style="flex:0.9;">
+                    <div class="workflow_table" style="height:100%; overflow-x: hidden;">
+                      <table class="display table table-striped table-hover multi-filter-select" style="height:100%; overflow-y: auto;">
                         <thead style="position: sticky; top: 0; z-index: 3 ; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);">
                           <tr>
                             <th style="width: 3%;">NUM</th>
@@ -381,8 +360,7 @@
                         </tbody>
                       </table>
                     </div>
-                  </div>
-				</div>
+                 </div>
 			</div>
 		</div>
 		

@@ -419,10 +419,12 @@ a:visited,
 a:hover, 
 a:active {
     color: inherit !important; /* 방문, 호버, 활성 상태에서도 글자색을 유지 */
+}
+
+a:hover{
     border-bottom: 1px solid rgba(0,0,0,0.1);
     cursor: pointer;
 }
-
 button {
 	background: transparent; /* 배경색을 투명으로 설정 */
     border: none;           /* 테두리를 없앰 */
@@ -480,7 +482,9 @@ button {
     justify-content: center;
 }
 
-
+.card-title{
+	font-size:15px;	
+}
 .card-box .card{
 	width:98%; 
 	height:94%; 
@@ -492,21 +496,21 @@ button {
    	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 /* default end*/
+.tool_name{
+	font-size:13px;
+}
+
 
 .card-box.button{
-	width:200px;
-	height:60px;
-	margin:15px;
+	width:130px;
+	height:40px;
+	margin:0 15px;
 }
 
 .card-box.button .card{
 	width:95%; 
 	height:85%; 
 	margin:0px;
-}
-
-.card-box.md{
-	height:700px;
 }
 
 .card-box.md .card{
@@ -689,9 +693,9 @@ button {
 	transform: scaleY(2);
 }
 .main-box-title{
-	font-size:18px;
+	font-size:14px;
 	font-weight: bold;
-	height:40px;
+	height:30px;
 	display:flex; 
 	color:rgba(0,0,0,0.8);
 	z-index:0;
@@ -755,10 +759,10 @@ td a{
 }
 
 .messenger_body{
+	height:100%;
 	background-color:rgba(200,200,200,0.1);
 	display:flex; 
 	width:100%;
-	height: 600px;
 }
 .messenger_body input,textarea,button{
 	background-color: transparent; /* 배경을 투명하게 설정 */

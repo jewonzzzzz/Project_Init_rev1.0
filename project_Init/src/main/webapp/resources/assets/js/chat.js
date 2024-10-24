@@ -128,8 +128,8 @@ $(document).ready(function () {
 		
 		$('#msg_content').keydown(function(e) {
 		    if (e.key === 'Enter') {
-		        e.preventDefault(); // 기본 엔터키 동작 방지
-		        $('#message_send_form').submit(); // 폼 제출
+		        e.preventDefault();
+		        $('#message_send_form').submit();
 		    }
 		});
 		
