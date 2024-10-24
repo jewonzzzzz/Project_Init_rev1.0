@@ -41,9 +41,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/assets/css/kaiadmin.min.css" />
 
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/assets/css/demo.css" />
 
 <style>
 .card {
@@ -371,11 +368,6 @@ textarea.form-control {
 	<script
 		src="${pageContext.request.contextPath }/resources/assets/js/kaiadmin.min.js"></script>
 
-	<!-- Kaiadmin DEMO methods, don't include it in your project! -->
-	<script
-		src="${pageContext.request.contextPath }/resources/assets/js/setting-demo.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/assets/js/demo.js"></script>
 
 	<script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {

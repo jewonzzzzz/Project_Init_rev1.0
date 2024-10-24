@@ -44,10 +44,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/assets/css/kaiadmin.min.css" />
 
-<!-- CSS Just for demo purpose, don't include it in your project -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/assets/css/demo.css" />
-
 <style>
 /* 페이지 및 카드 스타일 */
 .page-title {
@@ -367,11 +363,6 @@ input[readonly] {
 		<script
 			src="${pageContext.request.contextPath}/resources/assets/js/kaiadmin.min.js"></script>
 
-		<!-- Kaiadmin DEMO methods, don't include it in your project! -->
-		<script
-			src="${pageContext.request.contextPath}/resources/assets/js/setting-demo.js"></script>
-		<script
-			src="${pageContext.request.contextPath}/resources/assets/js/demo.js"></script>
 
 		<script>
     $(document).ready(function() {
