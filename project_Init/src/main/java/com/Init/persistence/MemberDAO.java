@@ -30,10 +30,10 @@ public interface MemberDAO {
 	
 	// 사용자 정보조회
 	public MemberVO getMember(String emp_id);
-	// 정보수정
-	public int updateMember(MemberVO uvo);
 	// 정보수정 이력
 	void insertHisMember(MemberVO uvo);
+	// 정보수정
+	public int updateMember(MemberVO uvo);
 	
 	// 계좌 정보 가져오기
     AccountVO getAccount(String emp_id);
