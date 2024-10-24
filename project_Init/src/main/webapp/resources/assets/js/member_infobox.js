@@ -4,12 +4,12 @@ $(document).ready(function () {
 		if ($(e.target).closest('.follow, .unfollow').length) {
 			return;
 		}
-		var emp_id = $(this).data('emp_id');
+		var info_emp_id = $(this).data('emp_id');
 	    
 	    $.ajax({
 	        url: '/main/memberInfoModal',
 	        type: 'GET',
-	        data: {emp_id: emp_id},
+	        data: {emp_id: info_emp_id},
 	        success: function (emp) {
 	            console.log('AJAX success for emp_id :', emp_id);
 	            console.log('taken data:', emp);
