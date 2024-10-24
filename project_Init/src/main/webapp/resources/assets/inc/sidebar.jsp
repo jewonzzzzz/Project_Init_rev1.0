@@ -44,7 +44,7 @@
         <div class="sidebar-wrapper scrollbar scrollbar-inner" style="background-color: rgba(0,0,0,0.8)">
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a href="/main/home">
                   <i class="fas fa-home"></i>
                   <p>HOME</p>

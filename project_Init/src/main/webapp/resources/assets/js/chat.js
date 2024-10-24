@@ -222,7 +222,7 @@ function getMembers() {
 		success: function (data) {
 			$('.messenger_body_menu').children(':not(.messenger_search)').remove();
 			
-			if(data.favoriteEmpList.favorite_emp.length>0){
+			if(data.favoriteEmpList && data.favoriteEmpList.favorite_emp && data.favoriteEmpList.favorite_emp.length > 0){
 			$('.messenger_body_menu').append(`
 					<div style="width:100%, height:15px; padding-left:5px;">
 					즐겨찾기 (${data.favoriteEmpList.favorite_emp.length})
