@@ -94,7 +94,7 @@
 	
 	<!-- 성과보고페이지 접근 시 이전 모든 이력 가져오기 -->
 	<select id="getEvaluatorInfo" resultType="EvalVO">
-		select emp_dnum, emp_id, emp_name, emp_position from employee where emp_id = #{emp_id} 
+		select emp_dnum, emp_id, emp_name, emp_position from employee where emp_id = #{emp_id} and approval = 0
 	</select>
 	
 	<!-- 평가시작된 eval_id와 부서 하위직원 내역 가져오기 -->
@@ -105,7 +105,7 @@
 		where h.eval_id = l.eval_id and h.emp_id = e.emp_id 
 		and eval_status = '평가시작' 
 		and emp_dnum = #{emp_dnum} 
-		and emp_position in ('팀장','과장','대리','사원') 
+		and emp_position in ('팀장','과장','대리','사원') and approval = 0
 	</select>
 	
 	<!-- 성과평과 상세페이지에서 보여줄 정보 가져오기 -->
@@ -115,7 +115,7 @@
 		score_develop, score_total, eval_grade, eval_comment  
 		from eval_his_list h, eval_list l, employee e 
 		where h.eval_id = l.eval_id and h.emp_id = e.emp_id 
-		and eval_his_id = #{eval_his_id} 
+		and eval_his_id = #{eval_his_id} and approval = 0
 	</select>
 	
 	<!-- 성과평가 저장하기 -->
