@@ -356,6 +356,7 @@ public class SalaryController {
 	@PostMapping(value = "getSalaryInquiryForEmployee")
 	@ResponseBody
 	public List<CalSalaryFinalVO> getSalaryInquiryForEmployee(@RequestBody List<String> checkSalaryInfo) {
+		logger.debug("getSalaryInquiryForEmployee() 호출");
 		logger.debug(checkSalaryInfo.toString());
 		
 		CalSalaryListVO vo = new CalSalaryListVO();

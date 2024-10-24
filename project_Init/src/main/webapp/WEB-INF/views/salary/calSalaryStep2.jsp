@@ -43,6 +43,19 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/plugins.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/kaiadmin.min.css" />
 
+   <style>
+		.table th {
+		  min-width: 100px; /* 각 열의 최소 너비 설정 */
+		  text-align: center; /* 텍스트 중앙 정렬 */
+		  position: sticky;
+		  top: 0;
+		  z-index: 10;  /* 헤더가 본문 데이터 위에 오도록 설정 */
+		}
+    </style>
+
+
+
+
   </head>
   <body>
     <div class="wrapper">
