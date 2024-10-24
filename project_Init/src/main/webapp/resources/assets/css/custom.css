@@ -419,6 +419,8 @@ a:visited,
 a:hover, 
 a:active {
     color: inherit !important; /* 방문, 호버, 활성 상태에서도 글자색을 유지 */
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 
 button {
