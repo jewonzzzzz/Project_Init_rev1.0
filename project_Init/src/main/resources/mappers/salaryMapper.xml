@@ -71,14 +71,14 @@
 	<select id="getMemberInfoToId" resultType="MemberInfoForSalaryVO">
 		select emp_id, emp_name, dname, emp_position, emp_job
 		from employee e, dept d 
-		where e.emp_dnum = d.dnum and emp_id = #{emp_id} and emp_status = '재직' 
+		where e.emp_dnum = d.dnum and emp_id = #{emp_id} and emp_status = '재직' and approval = 0
 	</select>
 	
 	<!-- 이름으로 직원정보 가져오기 -->
 	<select id="getMemberInfoToName" resultType="MemberInfoForSalaryVO">
 		select emp_id, emp_name, dname, emp_position, emp_job
 		from employee e, dept d 
-		where e.emp_dnum = d.dnum and emp_name = #{emp_name} and emp_status = '재직'  
+		where e.emp_dnum = d.dnum and emp_name = #{emp_name} and emp_status = '재직' and approval = 0 
 	</select>
 	
 	<!-- 모달창에서 검색된 직원정보를 본 테이블로 이동(근무이력 포함하여 출력) -->
@@ -88,7 +88,7 @@
 		sum(special_working_time) special_working_time 
 		from employee e, attendance_ch a, dept d 
 		where e.emp_id = a.emp_id and e.emp_dnum = d.dnum and e.emp_id = #{emp_id} and check_in 
-		between #{check_in } and concat(last_day(#{check_in}), ' 23:59:59')
+		between #{check_in } and concat(last_day(#{check_in}), ' 23:59:59') and approval = 0 
 	</select>
 	
 	<!-- 전체 직원정보 가져오기 -->
@@ -99,7 +99,7 @@
 		from employee e, attendance_ch a, dept d 
 		where e.emp_id = a.emp_id and e.emp_dnum = d.dnum and check_in 
 		between #{check_in } and concat(last_day(#{check_in}), ' 23:59:59') and emp_status = '재직' 
-		group by e.emp_id 
+		and approval = 0 group by e.emp_id 
 	</select>
 	
 	<!-- 급여산출결과 급여내역리스트 저장 -->
@@ -178,14 +178,15 @@
 	<select id="excelDownload" resultType="BankTransperVO">
 		select emp_account_name, emp_bank_name, emp_account_num, sal_total_after, sal_type, year, month  
 		from employee e, salary_final f, salary_list l 
-		where l.sal_list_id = f.sal_list_id and e.emp_id = f.emp_id and l.sal_list_id =#{sal_list_id}; 
+		where l.sal_list_id = f.sal_list_id and e.emp_id = f.emp_id and l.sal_list_id =#{sal_list_id}
+		and approval = 0 
 	</select>
 	
 	<!-- 결재요청 버튼 클릭 시 해당직원 정보 가져오기 -->
 	<select id="getMemberInfoForSignToId" resultType="MemberInfoForSalaryVO">
 		select emp_id, emp_name, emp_bnum, dname, emp_position 
 		from employee e, dept d 
-		where e.emp_dnum = d.dnum and emp_id = #{emp_id} 
+		where e.emp_dnum = d.dnum and emp_id = #{emp_id} and approval = 0 
 	</select>
 	
 	<!-- 결재요청 버튼 클릭 시 본부정보로 본부장 정보 가져오기 -->
@@ -193,6 +194,7 @@
 		select emp_id, emp_name, emp_position, dname 
 		from employee e, dept d 
 		where e.emp_dnum = d.dnum and emp_bnum = #{emp_bnum} and emp_position = '본부장' 
+		and approval = 0 
 	</select>
 	
 	<!-- 결재요청 버튼 클릭 시 본부정보로 본부장 정보 가져오기 -->
@@ -200,7 +202,7 @@
 		select emp_id, emp_name, emp_position, dname 
 		from employee e, dept d 
 		where e.emp_dnum = d.dnum and emp_bnum = #{emp_bnum} and dname = #{dname} 
-		and emp_position in ('부장', '팀장') 
+		and emp_position in ('부장', '팀장') and approval = 0 
 	</select>
 	
 	<!-- 결재요청 시 급여내역리스트 결재중으로 변경 -->

@@ -57,6 +57,7 @@
 	.table th {
 	  min-width: 100px; /* 각 열의 최소 너비 설정 */
 	  text-align: center; /* 텍스트 중앙 정렬 */
+	  background-color: #FAF9F6;
 	}
     </style>
     

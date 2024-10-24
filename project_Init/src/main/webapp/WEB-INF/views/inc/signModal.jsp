@@ -13,9 +13,9 @@
 	          <div class="modal-content" style="width: 1100px;">
 	            <div style="display: flex; justify-content: space-between;">
 	              <div class="col-6">
-	                <div class="modal-header border-0">
+	                <div class="modal-header border-0" style="padding-bottom: 5px;">
 	                  <h5 class="modal-title">
-	                    <span class="fw-mediumbold"> 직원정보</span>
+	                    <span class="fw-mediumbold"> <b>직원정보</b></span>
 	                  </h5>
 	                </div>
 	                <div class="modal-body">
@@ -24,13 +24,14 @@
 			          <table class="table table-bordered" id="modalTable">
 					    <thead>
 					      <tr>
-					        <th id="topText" colspan="5"></th>
+					        <th id="topText" colspan="5" 
+					        style="text-align: center;"></th>
 					      </tr>
 					      <tr>
-	                        <th>사번</th>
-	                        <th>직급</th>
-	                        <th>이름</th>
-	                        <th>선택</th>
+	                        <th style="text-align: center; background-color: #f8f9fa">사번</th>
+	                        <th style="text-align: center; background-color: #f8f9fa">직급</th>
+	                        <th style="text-align: center; background-color: #f8f9fa">이름</th>
+	                        <th style="text-align: center; background-color: #f8f9fa">선택</th>
 					      </tr>
 					    </thead>
 					    <tbody>
@@ -40,9 +41,9 @@
 	              </div>
 	            </div>
 	            <div>
-	              <div class="modal-header border-0">
+	              <div class="modal-header border-0" style="padding-bottom: 5px;">
 	                <h5 class="modal-title">
-	                  <span class="fw-mediumbold"> 결재요청</span>
+	                  <span class="fw-mediumbold"><b>결재요청</b></span>
 	                </h5>
 	                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 	                   <span aria-hidden="true">×</span>
@@ -53,10 +54,10 @@
 	                <table class="table table-bordered" id="signTable">
 					  <thead>
 					    <tr>
-	                      <th>직급</th>
-	                      <th>이름</th>
-	                      <th>결재유형</th>
-	                      <th>삭제</th>
+	                      <th style="text-align: center; background-color: #f8f9fa">직급</th>
+	                      <th style="text-align: center; background-color: #f8f9fa">이름</th>
+	                      <th style="text-align: center; background-color: #f8f9fa">결재유형</th>
+	                      <th style="text-align: center; background-color: #f8f9fa">삭제</th>
 					    </tr>
 					  </thead>
 					  <tbody>

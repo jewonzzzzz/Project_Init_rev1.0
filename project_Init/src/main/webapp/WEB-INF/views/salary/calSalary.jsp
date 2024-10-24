@@ -215,7 +215,7 @@
                    "<option name='wf_receiver_2nd' value='2차 결재자'>2차 결재자</option>" +
                    "<option name='wf_receiver_3rd' value='3차 결재자'>3차 결재자</option></select> </td>" +
                    "<td style='text-align: center;'><button class='delete-btn' style='border:none;" +
-                   "background:none'>X</button></td>" +
+                   "background:none; color:red; font-weight: bold;'>X</button></td>" +
                    "<input type='hidden' value='"+$(this).closest('tr').find('td').eq(0).text() +"'></tr>";
                    $('#signTable tbody').prepend(row_move);
             	}
