@@ -94,4 +94,14 @@ public class LeaveServiceImpl implements LeaveService {
 		return leaveDAO.getEmpStartDate(emp_id);
 	}
 
+	@Override
+	public LeaveVO getLatestLeaveInfo(String emp_id) {
+		return leaveDAO.getLatestLeaveInfo(emp_id);
+	}
+	
+	@Override
+	public void updateAnnualLeaveA(int leave_id) {
+		leaveDAO.updateAnnualLeaveA(leave_id);
+	}
+
 }

@@ -21,8 +21,12 @@ public interface LeaveService {
 	public void submitLeaveRequest(LeaveVO leaveVO);
 
 	List<LeaveVO> getLeaveStatus(String emp_id);
-	
-	public void generateAnnualLeave(String emp_id) ;
-	
+
+	public void generateAnnualLeave(String emp_id);
+
 	public List<LeaveVO> getAnnualLeaveByEmpId(String emp_id);
+
+	public LeaveVO getLatestLeaveInfo(String emp_id);
+	
+	public void updateAnnualLeaveA(int leave_id);
 }

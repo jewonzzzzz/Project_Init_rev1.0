@@ -266,6 +266,7 @@ function submitLeaveForm() {
         alert("사용 연차는 1일 이상이어야 합니다.");
         return;
     }
+    
 
     // AJAX 요청
     $.ajax({

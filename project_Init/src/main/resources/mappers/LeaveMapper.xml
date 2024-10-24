@@ -194,6 +194,7 @@
 		SELECT
 		e.emp_start_date,
 		e.emp_id,
+		l.leave_id,
 		l.total_annual_leave,
 		l.used_annual_leave,
 		l.remaining_annual_leave,
@@ -234,5 +235,25 @@
 		ON e.emp_id = l.emp_id
 		WHERE e.emp_id = #{emp_id}
 	</select>
-
+	
+	<select id="getLatestLeaveInfo" parameterType="string" resultType="com.Init.domain.LeaveVO">
+    SELECT remaining_annual_leave, requested_at
+    FROM leave_management
+    WHERE emp_id = #{emp_id}
+    ORDER BY annual_leave_start_date DESC
+    LIMIT 1
+	</select>
+	
+	
+	<update id="updateAnnualLeaveA" parameterType="int">
+	    UPDATE leave_management
+	    SET total_annual_leave = NULL,
+	        used_annual_leave = NULL,
+	        remaining_annual_leave = NULL,
+	        lgrant = NULL,
+	        adjustmentDate = NULL
+	    WHERE leave_id = #{leave_id};
+	</update>
+	
+	
 </mapper>

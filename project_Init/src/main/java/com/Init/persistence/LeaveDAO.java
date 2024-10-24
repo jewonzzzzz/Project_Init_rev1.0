@@ -46,4 +46,12 @@ public interface LeaveDAO {
     void insertAnnualLeave(String emp_id);
     
     public List<LeaveVO> getStartDate(String emp_id);
+    
+    public LeaveVO getLatestLeaveInfo(String emp_id);
+    
+   
+
+	void updateAnnualLeaveA(int leave_id);
+    
+    
 }

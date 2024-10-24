@@ -168,22 +168,30 @@
 		LIMIT 7
 	</select>
 
-	<insert id="updateOvertime"
-		parameterType="com.Init.domain.AttendanceVO">
-		UPDATE attendance_ch
-		SET
-
-		emp_id = #{emp_id},
-		workform_status = #{workform_status},
-		created_at = #{created_at},
-		overtime = #{overtime},
-		night_work_time = #{night_work_time},
-		special_working_time = #{special_working_time},
-		status = #{status},
-		modified_reason = #{modified_reason}
-		WHERE
-		attendance_id = #{attendance_id}
-	</insert>
+	<insert id="insertOvertime" 
+        parameterType="com.Init.domain.AttendanceVO">
+    INSERT INTO attendance_ch (
+        emp_id,
+        workform_status,
+        created_at,
+        overtime,
+        night_work_time,
+        special_working_time,
+        status,
+        modified_reason
+       
+    )
+    VALUES (
+        #{emp_id},
+        #{workform_status},
+        #{created_at},
+        #{overtime},
+        #{night_work_time},
+        #{special_working_time},
+        #{status},
+        #{modified_reason}  
+    )
+</insert>
 
 	<!-- 외출 시간 업데이트 쿼리 -->
 	<update id="updateWorkingOutsideTime"

@@ -404,11 +404,7 @@
             </div>
             <div class="modal-body">
                 <form id="overtimeForm" onsubmit="event.preventDefault(); submitOvertimeForm();">
-                    <div class="form-group">
-                        <label for="attendance_id">근태 번호</label>
-                        <input type="text" class="form-control" id="attendance_id" name="attendance_id" placeholder="수정하고 싶은 해당 날짜의 근태 번호를 입력해주세요." required>
-                    </div>
-
+                  
                     <div class="form-group">
                         <label for="emp_id">사원 ID</label>
                         <input type="text" class="form-control" id="emp_id" name="emp_id" value="<%= empId %>" readonly>
@@ -470,40 +466,40 @@
 </div>
 
 <script>
+// 폼 유효성 검사 함수 (필요시 구현)
 function validateForm() {
-    // 입력 필드 값 가져오기
-    const createdAt = document.getElementById('created_at').value;
- 	
-    const attendanceId = document.getElementById('attendance_id').value.trim();
+    // 입력 필드 값 가져오기 (유효성 검사 추가 가능)
+     const createdAt = document.getElementById('created_at').value;
+    const overtime = document.getElementById('overtime').value;
+    const nightWorkTime = document.getElementById('night_work_time').value;
+    const specialWorkingTime = document.getElementById('special_working_time').value;
 
-	
-    // 근태 번호 유효성 검사
-    if (!attendanceId) {
-        alert("근태 번호를 입력해주세요.");
+ // 날짜 입력 여부 확인
+    if (!createdAt) {
+        alert("날짜를 입력해 주세요.");
         return false;
     }
- 
 
- 
-    // 모든 유효성 검사 통과
+    // 초과시간, 야간시간, 특근시간 중 하나라도 입력해야 함
+    if (!overtime && !nightWorkTime && !specialWorkingTime) {
+        alert("초과시간, 야간시간, 또는 특근시간 중 하나를 입력해 주세요.");
+        return false;
+    }
+
+    // 유효성 검사를 모두 통과한 경우
     return true;
 }
 
 // 서버에 폼 데이터를 제출하는 함수
 function submitOvertimeForm() {
-	 
-	  // 모달을 표시
-	  $('#addRowModal').modal('show');
-	  
-	
-	 
-	  
-	// 유효성 검사 호출
+    // 폼 유효성 검사 실행
     if (!validateForm()) {
-        return; // 유효성 검사 실패 시 종료
+        return;
     }
-	
-	
+
+    // 모달을 표시
+    $('#addRowModal').modal('show');
+
     // 폼 요소 가져오기
     const form = document.getElementById('overtimeForm');
     const formData = new FormData(form);
@@ -532,12 +528,13 @@ function submitOvertimeForm() {
     .then(function(data) {
         // 서버 응답 처리
         alert('신청서가 성공적으로 제출되었습니다.');
-        
+        $('#addRowModal').modal('hide'); // 모달 닫기
         form.reset(); // 폼 초기화
     })
     .catch(function(error) {
-    	alert('신청서가 성공적으로 제출되었습니다.');
-        $('#overtimeModal').modal('hide'); // 모달 닫기
+        console.error('오류 발생:', error);
+        alert('서버 응답에 문제가 발생했습니다.');
+        $('#addRowModal').modal('hide'); // 모달 닫기
         form.reset(); // 폼 초기화
     });
 }
@@ -782,7 +779,7 @@ function submitAttendanceForm2() {
     const updatedCheckIn = $('#new_check_in').val(); // 수정할 출근 시간
     const updatedCheckOut = $('#new_check_out').val(); // 수정할 퇴근 시간
     const workingOutsideTime = $('#new_WorkingOutside_time').val() || null; // 외근 시간 (Null 가능)
-    const requestDateTime = $('#created_at_time').val(); // 신청 날짜 및 시간
+    const requestDateTime = $('#created_at').val(); // 신청 날짜 및 시간
     const reasonForModification = $('#modified_reasonA').val(); // 신청 이유
     const attendanceStatus = $('#status').val(); // 상태
 
@@ -933,6 +930,8 @@ function submitBusinessTrip() {
     const businessEndDate = document.getElementById('businessEndDate').value;
     const educationDate = document.getElementById('educationDate').value;
     const educationEndDate = document.getElementById('educationEndDate').value;
+    const createdAt = document.getElementById('created_at').value;
+    
     const workformStatus = document.getElementById('workformStatus').value;
     const reason = document.getElementById('reason').value;
 
@@ -964,6 +963,7 @@ function submitBusinessTrip() {
             educationDate: educationDate,
             education_endDate: educationEndDate,
             workform_status: workformStatus,
+            created_at : createdAt,
             modified_reason: reason,
             status: status // 고정된 상태값
         }),

@@ -73,45 +73,43 @@
 
 
 
+<div class="card-body">
+    <div class="table-responsive">
+        <div id="basic-datatables_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+            <div class="d-flex align-items-center">
+                <label class="me-2">사원 ID:</label>
+                <input type="text" class="form-control me-2" id="emp_id_to_view" placeholder="사원 ID를 입력하세요" required style="width: 200px;">
+                
+                <button id="viewLeaveButton" class="btn btn-info">사원 연차 조회</button>
+            </div>
+            <br>
+            <br>
 
-
-  <div class="card-body">
-        <div class="table-responsive">
-            <div id="basic-datatables_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
-                <div class="d-flex align-items-center">
-                    <label class="me-2">사원 ID:</label>
-                    <input type="text" class="form-control me-2" id="emp_id_to_view" placeholder="사원 ID를 입력하세요" required style="width: 200px;">
-                    
-                    <button id="viewLeaveButton" class="btn btn-info">사원 연차 조회</button>
-                </div>
-                <br>
-                <br>
-
-                <!-- 연차 정보를 표시할 테이블 -->
-                <div id="annualLeaveData">
-                    <table id="annualLeaveTable" class="display table mt-3" style="width: 100%;">
-                        <thead>
-                            <tr>
-                                <th>입사일</th>                <!-- 사원의 입사일 -->
-                                <th>사원 ID</th>               <!-- 연차 테이블의 사원 번호 -->
-                                <th>총 연차 일수</th>
-                                <th>사용된 연차 일수</th>
-                                <th>남은 연차 일수</th>
-                                <th>연차 부여</th>
-                                <th>조정일</th>                <!-- 조정일 추가 -->
-                                <th>연차 생성</th>             <!-- 연차 생성 버튼 열 추가 -->
-                            </tr>
-                        </thead>
-                        <tbody id="annualLeaveList">
-                            <!-- 조회된 연차 데이터가 여기에 삽입됩니다 -->
-                        </tbody>
-                    </table>
-                </div>
+            <!-- 연차 정보를 표시할 테이블 -->
+            <div id="annualLeaveData">
+                <table id="annualLeaveTable" class="display table mt-3" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>입사일</th>                <!-- 사원의 입사일 -->
+                            <th>사원 ID</th>               <!-- 연차 테이블의 사원 번호 -->
+                            <th>총 연차 일수</th>
+                            <th>사용된 연차 일수</th>
+                            <th>남은 연차 일수</th>
+                            <th>연차 부여</th>
+                            <th>조정일</th>                <!-- 조정일 추가 -->
+                            <th>연차 생성</th> 
+                            <th>연차 이력 초기화</th>       <!-- 연차 이력 삭제 버튼 열 추가 -->
+                        </tr>
+                    </thead>
+                    <tbody id="annualLeaveList">
+                        <!-- 조회된 연차 데이터가 여기에 삽입됩니다 -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    
-    
+</div>
+
 <script>
     $(document).ready(function() {
         $('#viewLeaveButton').click(function() {
@@ -126,21 +124,18 @@
 
                         if (Array.isArray(response) && response.length > 0) {
                             response.forEach(function(leave) {
-                                // 입사일과 조정일을 날짜 형식으로 변환
                                 var startDate = formatDate(leave.emp_start_date); // 사원의 입사일
-                               
-								
-                              
                                 $('#annualLeaveList').append(
                                     '<tr>' +
                                         '<td>' + startDate + '</td>' + // 사원의 입사일
-                                        '<td>' + leave.emp_id + '</td>' + // 연차 테이블의 사원 번호
+                                        '<td>' + leave.emp_id + '</td>' + // 테이블의 사원 번호
                                         '<td>' + leave.total_annual_leave + '</td>' +
                                         '<td>' + leave.used_annual_leave + '</td>' +
                                         '<td>' + leave.remaining_annual_leave + '</td>' +
-                                        '<td>' + leave.lgrant + '</td>' + // 
-                                        '<td>' + leave.adjustmentDate + '</td>' + // 조정일
+                                        '<td>' + (leave.lgrant || "-") + '</td>' + // 
+                                        '<td>' + (leave.adjustmentDate || "-") + '</td>' + // 조정일
                                         '<td><button class="btn btn-success createLeaveButton" data-emp-id="' + leave.emp_id + '">연차 생성</button></td>' + // 연차 생성 버튼
+                                        '<td><button class="btn btn-danger deleteLeaveButton" data-leave-id="' + leave.leave_id + '">이력 초기화</button></td>' + // 연차 삭제 버튼 추가
                                     '</tr>'
                                 );
                             });
@@ -174,6 +169,26 @@
                 }
             });
         });
+
+        // 연차 삭제 버튼 클릭 이벤트
+        $(document).on('click', '.deleteLeaveButton', function() {
+            var leaveId = $(this).data('leave-id');
+            if (confirm('정말로 이 연차 이력을 삭제하시겠습니까?')) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'deleteA',  // 연차 삭제를 처리할 URL
+                    data: { leave_id: leaveId },
+                    success: function(response) {
+                        alert('연차 이력이 성공적으로 삭제되었습니다.');
+                        $('#viewLeaveButton').click(); // 조회 버튼을 다시 클릭하여 갱신
+                    },
+                    error: function() {
+                        alert('연차 이력이 성공적으로 삭제되었습니다.');
+                        $('#viewLeaveButton').click(); 
+                    }
+                });
+            }
+        });
     });
 
     // 날짜를 "YYYY-MM-DD" 형식으로 변환하는 함수
@@ -182,7 +197,6 @@
         var date = new Date(dateString);
         return date.toISOString().split('T')[0]; // "YYYY-MM-DD" 형식으로 변환
     }
-    
 </script>
 
 

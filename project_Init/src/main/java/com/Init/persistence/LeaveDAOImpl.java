@@ -130,6 +130,14 @@ public class LeaveDAOImpl implements LeaveDAO {
 	    public List<LeaveVO> getStartDate(String emp_id){
 	        return sqlSession.selectList(NAMESPACE + ".getEmpStartDate", emp_id);
 	    }
-
+	    @Override
+	    public LeaveVO getLatestLeaveInfo(String emp_id) {
+	        return sqlSession.selectOne(NAMESPACE+".getLatestLeaveInfo",emp_id);
+	    }
+	    @Override
+	    public void updateAnnualLeaveA(int leave_id) {
+	        sqlSession.update(NAMESPACE+".updateAnnualLeaveA",leave_id);
+	    }
+	    
 	    
 }

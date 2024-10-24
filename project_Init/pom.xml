@@ -229,6 +229,21 @@
 		    <version>5.2.3</version>
 		</dependency>
 		
+				
+			<dependency>
+		    <groupId>com.google.zxing</groupId>
+		    <artifactId>core</artifactId>
+		    <version>3.4.1</version> <!-- 최신 버전 확인 후 업데이트 -->
+		</dependency>
+		<dependency>
+		    <groupId>com.google.zxing</groupId>
+		    <artifactId>javase</artifactId>
+		    <version>3.4.1</version> <!-- 최신 버전 확인 후 업데이트 -->
+		</dependency>
+				
+	
+		
+		
 		
 		<!-- 외부 라이브러리 추가 -->
 		

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -191,6 +192,17 @@ public class LeaveController {
 		}
 		return leaveList; // LeaveVO 리스트를 JSON으로 반환
 	}
+
+	@GetMapping("/getLeaveInfoA")
+	@ResponseBody
+	public LeaveVO getLeaveInfo(@RequestParam String emp_id) {
+		LeaveVO leaveInfo = leaveService.getLatestLeaveInfo(emp_id);
+		return leaveInfo;
+	}
 	
+	@PostMapping("/deleteA")
+     public void deleteAnnualLeave(@RequestParam("leave_id") int leave_id) {
+	        leaveService.updateAnnualLeaveA(leave_id);
+	    }
 
 }
