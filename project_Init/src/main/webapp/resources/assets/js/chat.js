@@ -435,7 +435,6 @@ function chatRoomList() {
 		url: '/message/getChatRoomList',
 		type: 'GET',
 		success: function (data) {
-			console.log('load chat list :'+data.length);
 			$('.messenger_body_chat.list').children(':not(.messenger_room_search)').remove();
 			for (const rooms of data.favoriteChatRoomList) {
 				console.log(rooms);
