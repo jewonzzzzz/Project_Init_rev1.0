@@ -50,8 +50,8 @@ $(document).ready(function () {
 			if (room_check_interval) {
 				clearInterval(room_check_interval);
 			}
-			if (room_check_interval) {
-		        clearInterval(room_check_interval);
+			if (member_check_interval) {
+		        clearInterval(member_check_interval);
 		    }
 			
 			const room_id = $(this).data('room_id');
@@ -78,8 +78,8 @@ $(document).ready(function () {
 			if (room_check_interval) {
 				clearInterval(room_check_interval);
 			}
-			if (room_check_interval) {
-		        clearInterval(room_check_interval);
+			if (member_check_interval) {
+		        clearInterval(member_check_interval);
 		    }
 			
 			const receiver_emp_id = $(this).data('receiver_emp_id');

@@ -87,7 +87,7 @@
  
   <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">
+                  <div class="card-body">
                  <div class="card-title">근태관리</div>
 
 
@@ -1377,7 +1377,6 @@ function determineWorkStatus(checkInTime, checkOutTime) {
 
    </div>
                   <div class="card-body">
-                    
 
 <!------------------------------------------------------------------------------------------------------------------>
           </div>
