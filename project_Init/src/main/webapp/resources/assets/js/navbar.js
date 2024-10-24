@@ -92,6 +92,16 @@ function extendMessenger() {
 	document.getElementById("open_messenger").style.display = 'flex';
 	$('#open_messenger').css('position','absolute'); 
 	$('#open_messenger').addClass('right_top');
+	getMembers();
+	chatRoomList();
+	
+	room_check_interval = setInterval(function() {
+		chatRoomList();
+    }, 5000);
+	
+	member_check_interval = setInterval(function() {
+		checkMember();
+    }, 10000);
 }
 
 function extendCalendar() {
@@ -118,6 +128,15 @@ function closeMessenger() {
     setTimeout(function() {
         document.getElementById("open_messenger").style.display = 'none';
     }, 500);
+    if (message_check_interval) {
+        clearInterval(message_check_interval);
+    }
+	if (room_check_interval) {
+		clearInterval(room_check_interval);
+	}
+	if (member_check_interval) {
+        clearInterval(member_check_interval);
+    }
 }
 
 function closeCalendar() {

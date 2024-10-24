@@ -110,22 +110,11 @@
                 <div class="card">
                   <div class="card-header">
                     <div class="card-title">근태관리</div>
-               
-                    
-                    
-
 <br>
 <br>
 <br>
 <br>
-
-	
-      
-            
                         <h1>사원 근태 관리(관리자)</h1>
-                        
-
- 
    <form>
     <div class="d-flex align-items-center">
         <label class="me-2">사원번호 :</label>
@@ -137,12 +126,9 @@
         <button type="submit" id="checkTimeButton" class="btn btn-info">사원 근태 조회</button>
     </div>
 </form>     
-   
 <br>
 <br>
 <br>
-
-
 <!-- 사원 근태 데이터 테이블 -->
   <div id="attendanceData">
             <table id="checkTimeTable" class="table mt-3">
@@ -182,7 +168,6 @@
             <!-- 페이징 버튼을 위한 공간 -->
             <ul id="pagination" class="pagination"></ul>
         </div>
-
         <!-- 모달 구조 -->
        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -601,20 +586,10 @@
     
     
     </script>
-
-	
-	
-	
 	<br>
 	<br>
 	<br>
 	<br>
-	
-
-	
-
-
-
 <!-- QR 생성 -->
 	<h1>사원 출/퇴근 QR카드 발급 </h1>
    <form action="${pageContext.request.contextPath}/getQR" method="get" target="qrFrame" onsubmit="showQrModal(event)">
@@ -644,7 +619,6 @@
         </div>
     </div>
 </div>
-
 <script>
     function showQrModal(event) {
         event.preventDefault(); // 기본 폼 제출 방지
@@ -670,18 +644,12 @@
         document.getElementById('qrFrame').src = ''; // 모달이 닫힐 때 iframe 초기화
     });
 </script>
-
-
 	<br>
 	<br>
 	<br>
 	<br>
-	
-
-                    
    </div>
                   <div class="card-body">
-                    
 <!------------------------------------------------------------------------------------------------------------------>
           </div>
           <!-- page-inner -->
