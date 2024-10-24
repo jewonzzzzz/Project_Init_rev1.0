@@ -591,3 +591,4 @@ public class MemberController implements ServletContextAware {
 	
 }
 //http://localhost:8088/member/login
+//http://localhost:8088/member/login
