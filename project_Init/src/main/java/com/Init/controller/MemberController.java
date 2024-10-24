@@ -215,12 +215,12 @@ public class MemberController implements ServletContextAware {
 	 	}
 	 			
 	 	// 회원정보 수정 - 처리POST
-	 	@RequestMapping(value="/update", method = RequestMethod.POST)
+	 	@PostMapping("/update")
 	 	@ResponseBody
 	 	public ResponseEntity<Map<String, Object>> updateMemberPOST(@ModelAttribute MemberVO vo) {
-	 	    logger.debug("/member/update -> updateMemberPOST() 실행");
-	 	    logger.debug("전달받은 정보(파라메터)를 저장");
-	 	    logger.debug(" vo : "+vo);	
+	 	    logger.debug("updateMemberPOST 실행");
+	 	    logger.debug("전달받은 MemberVO: {}", vo);  // 전체 VO 객체 로깅
+	 	    logger.debug("emp_id 값: {}", vo.getEmp_id());  // emp_id 값만 따로 로깅
 	 			
 	 	    Map<String, Object> response = new HashMap<>();
 	 	    try {

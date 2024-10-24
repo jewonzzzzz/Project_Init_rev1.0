@@ -129,8 +129,20 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public MemberVO memberInfo(String emp_id) {
         logger.debug("회원 정보 조회 서비스 실행: {}", emp_id);
-        return mdao.getMember(emp_id);
+        
+        try {
+            MemberVO member = mdao.getMember(emp_id);
+            if (member != null) {
+                return member;
+            }
+            logger.error("존재하지 않는 사원입니다.");
+            return null;
+        } catch (Exception e) {
+            logger.error("회원 정보 조회 중 오류 발생", e);
+            throw e;
+        }
     }
+    
     // 정보수정 비밀번호 인증
     @Override
     public boolean verifyPassword(String emp_id, String password) {
@@ -143,26 +155,43 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     @Transactional
-	public int memberUpdate(MemberVO uvo) {
-		logger.debug("memberUpdate(MemberVO uvo) 실행");
-		
-		// 모든 필드가 null이 아닌지 확인
-	    if (uvo.getEmp_position() == null || uvo.getEmp_status() == null || uvo.getEmp_job() == null ||
-	        uvo.getEmp_account_num() == null || uvo.getEmp_bank_name() == null || uvo.getEmp_account_name() == null) {
-	        logger.error("일부 필드가 null입니다. 업데이트할 수 없습니다.");
-	        return 0;
-	    }
-		
-		// 회원정보 수정
-		
-	    if(mdao.updateMember(uvo) == 1) {
-	    	mdao.insertHisMember(uvo);
-	    }
-		
-		
-		// 회원정보 수정 이력
-		return 0;
-	}
+    public int memberUpdate(MemberVO uvo) {
+        logger.debug("memberUpdate(MemberVO uvo) 실행");
+        
+        try {
+            // 1. 기존 데이터 존재 여부 확인
+            MemberVO existingMember = mdao.getMember(uvo.getEmp_id());
+            if (existingMember == null) {
+                logger.error("존재하지 않는 사원입니다.");
+                return 0;
+            }
+
+            // 2. 필수 필드 검증
+            if (uvo.getEmp_position() == null || uvo.getEmp_status() == null || 
+                uvo.getEmp_job() == null) {
+                logger.error("필수 필드가 누락되었습니다.");
+                return 0;
+            }
+
+            // 3. 모든 approval 값 증가 (먼저 실행)
+            mdao.insertHisMember(uvo);
+
+            // 4. 새로운 데이터 삽입 (approval = 0)
+            int result = mdao.updateMember(uvo);
+            
+            if(result > 0) {
+                logger.debug("회원정보 수정 성공");
+                return 1;
+            } else {
+                logger.error("회원정보 수정 실패");
+                return 0;
+            }
+            
+        } catch (Exception e) {
+            logger.error("회원정보 수정 중 오류 발생", e);
+            throw new RuntimeException("회원정보 수정 실패", e);
+        }
+    }
 
     @Override
     public AccountVO getAccount(String emp_id) {

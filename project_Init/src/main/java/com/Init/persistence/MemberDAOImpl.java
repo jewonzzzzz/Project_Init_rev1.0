@@ -112,21 +112,23 @@ public class MemberDAOImpl implements MemberDAO{
 	
 	@Override
 	public MemberVO getMember(String emp_id) {
-		System.out.println(" DAO : getMember(String emp_id)");
-		
-		return sqlSession.selectOne(NAMESPACE+".getMember",emp_id);
+	    logger.debug("DAO: getMember 실행, emp_id: {}", emp_id);  // 파라미터 값 확인
+	    MemberVO result = sqlSession.selectOne(NAMESPACE+".getMember", emp_id);
+	    logger.debug("DAO: 조회 결과: {}", result);  // 조회 결과 확인
+	    return result;
 	}
 	
 	@Override
 	public int updateMember(MemberVO uvo) {
-		System.out.println(" DAO : updateMember(MemberVO uvo)");
-
-		return sqlSession.update(NAMESPACE+".updateMember", uvo);
+	    logger.debug("DAO : updateMember(MemberVO uvo) 실행");
+	    return sqlSession.insert(NAMESPACE+".updateMember", uvo);
 	}
+
 
 	@Override
 	public void insertHisMember(MemberVO uvo) {
-		sqlSession.insert(NAMESPACE+".insertHisMember", uvo);
+	    logger.debug("DAO : insertHisMember(MemberVO uvo) 실행");
+	    sqlSession.update(NAMESPACE+".insertHisMember", uvo);
 	}
 
 	@Override

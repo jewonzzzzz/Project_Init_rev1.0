@@ -111,43 +111,45 @@
     </delete>
   	
   	<!-- 회원정보 조회 -->
-  	<select id="getMember" resultType="MemberVO">
+	<select id="getMember" resultType="MemberVO">
+	    /* 회원 정보 조회 */
 	    SELECT * FROM employee
 	    WHERE emp_id = #{emp_id}
-	    AND approval = 0
+	    ORDER BY approval ASC
+	    LIMIT 1
 	</select>
   	
-	<!-- 수정 이력 추가 -->
-	<update id="insertHisMember">
-	   update employee 
-	    set approval = approval + 1
-	    where emp_id = #{emp_id}
-	    order by approval desc
-	</update>
-	
-  	<!-- 회원 정보 수정 -->
+	<!-- 2. 새로운 데이터 삽입 -->
 	<insert id="updateMember">
-    insert into employee (
-        emp_id, emp_name, emp_birth, emp_gender, emp_tel, emp_email, 
-        emp_addr, emp_dnum, emp_position, emp_job, emp_status, emp_bnum, 
-        emp_work_type, emp_bank_name, emp_account_num, emp_account_name, 
-        emp_start_date, emp_salary, emp_break_date, emp_restart_date, 
-        emp_quit_date, emp_pw, emp_profile, reason, reason_detail, approval
-    )
-    select 
-        #{emp_id}, #{emp_name}, #{emp_birth}, #{emp_gender}, #{emp_tel}, #{emp_email}, 
-        #{emp_addr}, #{emp_dnum}, #{emp_position}, #{emp_job}, #{emp_status}, #{emp_bnum}, 
-        #{emp_work_type}, #{emp_bank_name}, #{emp_account_num}, #{emp_account_name}, 
-        #{emp_start_date}, e.emp_salary, #{emp_break_date}, #{emp_restart_date}, 
-        #{emp_quit_date}, e.emp_pw, e.emp_profile, #{reason}, #{reason_detail}, -1
-    from employee e
-    where e.emp_id = #{emp_id}
-    and not exists (
-        select 1 from employee 
-        where emp_id = #{emp_id}
-    )
-    limit 1
+	    INSERT INTO employee (
+	        emp_id, emp_name, emp_birth, emp_gender, emp_tel, emp_email, 
+	        emp_addr, emp_dnum, emp_position, emp_job, emp_status, emp_bnum, 
+	        emp_work_type, emp_bank_name, emp_account_num, emp_account_name, 
+	        emp_start_date, emp_salary, emp_break_date, emp_restart_date, 
+	        emp_quit_date, emp_pw, emp_profile, reason, reason_detail, approval
+	    )
+	    SELECT 
+	        #{emp_id}, #{emp_name}, #{emp_birth}, #{emp_gender}, #{emp_tel}, #{emp_email}, 
+	        #{emp_addr}, #{emp_dnum}, #{emp_position}, #{emp_job}, #{emp_status}, #{emp_bnum}, 
+	        #{emp_work_type}, #{emp_bank_name}, #{emp_account_num}, #{emp_account_name}, 
+	        #{emp_start_date}, e.emp_salary, #{emp_break_date}, #{emp_restart_date}, 
+	        #{emp_quit_date}, e.emp_pw, e.emp_profile, #{reason}, #{reason_detail}, 0
+	    FROM employee e
+	    WHERE e.emp_id = #{emp_id}
+	    AND e.approval = (
+	        SELECT MIN(approval) 
+	        FROM employee 
+	        WHERE emp_id = #{emp_id}
+	    )
 	</insert>
+
+	<!-- 1. approval 값 높은 순서대로 증가 -->
+	<update id="insertHisMember">
+	    UPDATE employee 
+	    SET approval = approval + 1
+	    WHERE emp_id = #{emp_id}
+	    ORDER BY approval DESC
+	</update>
 
 	
 	<!-- 관리자 수정 -->
