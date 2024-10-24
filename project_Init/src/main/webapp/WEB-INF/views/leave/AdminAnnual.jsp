@@ -127,11 +127,11 @@
                                 var startDate = formatDate(leave.emp_start_date); // 사원의 입사일
                                 $('#annualLeaveList').append(
                                     '<tr>' +
-                                        '<td>' + startDate + '</td>' + // 사원의 입사일
-                                        '<td>' + leave.emp_id + '</td>' + // 테이블의 사원 번호
-                                        '<td>' + leave.total_annual_leave + '</td>' +
-                                        '<td>' + leave.used_annual_leave + '</td>' +
-                                        '<td>' + leave.remaining_annual_leave + '</td>' +
+                                        '<td>' + (startDate|| "-") + '</td>' + // 사원의 입사일
+                                        '<td>' + (leave.emp_id|| "-") + '</td>' + // 테이블의 사원 번호
+                                        '<td>' + (leave.total_annual_leave|| "-") + '</td>' +
+                                        '<td>' + (leave.used_annual_leave|| "-") + '</td>' +
+                                        '<td>' + (leave.remaining_annual_leave || "-" ) + '</td>' +
                                         '<td>' + (leave.lgrant || "-") + '</td>' + // 
                                         '<td>' + (leave.adjustmentDate || "-") + '</td>' + // 조정일
                                         '<td><button class="btn btn-success createLeaveButton" data-emp-id="' + leave.emp_id + '">연차 생성</button></td>' + // 연차 생성 버튼
