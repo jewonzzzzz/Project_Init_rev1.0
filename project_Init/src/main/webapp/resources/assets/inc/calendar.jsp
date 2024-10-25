@@ -5,13 +5,10 @@
     
 <script src="${pageContext.request.contextPath }/resources/assets/js/calendar.js"></script>
 
-<div id="open_calendar" class="card-box" style="display:none; flex-direction:column; height:600px;">
+<div id="open_calendar" class="card-box" style="display:none; flex-direction:column; height:450px !important; width:500px;">
 	<div class="card" style="width:96%; height:96%; margin:0px;">
-		<div class="card-header">
-		<h4 class="card-title">CALENDAR</h4>
-		</div>	
-		<div class="calendar-container">
-			<div class="calendar-head">
+		<div class="calendar-container" style="flex:0.9;">
+			<div class="calendar-head" style="height:80px;">
 				<div class="year_month">
 				    <div class="year">
 				        <button id="prevYear">

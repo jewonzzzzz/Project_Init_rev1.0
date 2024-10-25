@@ -65,7 +65,7 @@
           <%@ include file="/resources/assets/inc/navbar.jsp" %>
         </div>
         <div class="container">
-          <div class="page-inner" style="background-color : rgba(250,250,250,0.7); padding-top:10px; height: 90vh; display:flex; flex-direction:column; justify-content: space-between; align-content: flex-end;">
+          <div class="page-inner" style="background-color : rgba(250,250,250,0.7); padding-top:10px; height: 85vh; display:flex; flex-direction:column; justify-content: space-between; align-content: flex-end;">
 <!------------------------------------------------------------------------------------------------------------------>
 <!-- header start -->
 <div class="header-box" style="display:flex; width: 100%; flex:0.05; box-sizing: border-box; justify-content: flex-end;">
@@ -145,7 +145,6 @@
 									</button>
 								</div>
 							</div>
-							
 						</div>
 						<div style="display:flex; flex:1; width:100%;">
 							<div style="display:flex; flex:0.5; width:100%; justify-content: center; align-items: center;">
@@ -215,11 +214,11 @@
 </div>
 <!-- header end -->
 <!-- contents start -->
-<div class="contents-box" style="display:flex; flex-direction:column; justify-content: space-between; width: 100%; box-sizing: border-box; flex:0.95; ">
+<div class="contents-box" style="display:flex; flex-direction:column; justify-content: flex-start; width: 100%; box-sizing: border-box; flex:0.95; ">
 	
 	<!-- 중단 -->
-	<div style="flex:0.2; display: flex; justify-content: space-between; align-content: center; margin-top: 10px; ">
-		<div style="flex:0.3; position: relative; top:-20px;">
+	<div style="flex:0.2; display: flex; justify-content: space-between; align-content: center; margin-top: 10px; position:relative; overflow: visible;">
+		<div style="width:500px; position: relative; top:-20px;">
 			<div id="main-notify-box" style="width:100%; height:100%; display:flex; flex-direction:column;">
 				<div class="main-box-title">
 					<div class="run">
@@ -232,7 +231,7 @@
 				</div>
 			</div>		
 		</div>
-		<div style="flex:0.3; position: relative; top:-20px;">
+		<div style="width:500px; position: relative; top:-20px;">
 			<div id="main-board-box" style="width:100%; height:100%; display:flex; flex-direction:column;">
 				<div class="main-box-title">
 					<div style="box-shadow: 2px 0px 2px 1px rgba(0, 0, 0, 0.4);">교육 일정</div>
@@ -244,8 +243,8 @@
 				</div>
 			</div>	
 		</div>
-		<div style="flex:0.25;">
-			<div class="card-box" style="width:100%; height:200px;">
+		<div style="width:500px;  position: relative; z-index: 10; height:200px;">
+			<div class="card-box" style="width:100%; height:122%;">
 				<div class="card" style="width:96%; height:94%;">
 					<div id="main-info-box" style="width:100%; height:100%; display:flex; flex-direction:column;">
 						<div style="width:100%; height:100%; display:flex; flex-direction:column;">
@@ -253,26 +252,26 @@
 								<div style="flex:0.4;">
 								<img src="" style="border:1px solid black; height: 100%; object-fit: cover; width: auto; border-radius: 50%;">
 								</div>
-								<div style="flex:0.6; display:flex; flex-direction:column; font-size:16px;">
+								<div style="flex:0.6; display:flex; flex-direction:column; font-size:14px;">
 									<div style="flex:1; display:flex; align-items: flex-end; justify-content: flex-start;">
 										${memberVO.emp_bnum}
 									</div>
 									<div style="flex:1; display:flex; align-items: center; justify-content: flex-start;">
 										${memberVO.emp_dnum} ${memberVO.emp_position} ${memberVO.emp_job}
 									</div>
-									<div style="flex:1; display:flex; align-items: flex-start; justify-content: flex-start; font-size:20px;">
+									<div style="flex:1; display:flex; align-items: flex-start; justify-content: flex-start; font-size:16px;">
 										${memberVO.emp_name}
 									</div>
 								</div>
 							</div>
-							<div style="flex:1; display:flex; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">
-								<div style="flex:0.45; display:flex; flex-direction:column; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">
+							<div style="flex:1; display:flex;">
+								<div style="flex:0.45; display:flex; flex-direction:column;">
 									<div style="flex:1; display:flex; flex-direction:column; align-items: center; justify-content: flex-start;">
 										<div style="flex:1; display:flex; align-items: flex-end; justify-content: flex-start; text-align: left;">
 											<i id = "unread_message_main_badge" class="fa-solid fa-message" style="line-height:25px; font-size:15px; padding-right:10px;"></i>
 											 읽지 않은 메세지 :
 										</div>
-										<div id = "unread_message_main" style="flex:1; display:flex; align-items: flex-start;">
+										<div id = "unread_message_main" style="flex:1; display:flex; align-items: flex-start; font-size:12px;">
 										</div>
 									</div>
 										<div style="flex:1; display:flex; flex-direction:column; align-items: center; justify-content: flex-start;">
@@ -280,7 +279,7 @@
 												<i id = "unread_workflow_main_badge" class="fa-solid fa-bell" style="line-height:25px; font-size:15px; padding-right:10px;"></i>
 												 받은 승인요청 :
 											</div>
-												<div id = "unread_workflow_main" style="flex:1; display:flex; align-items: flex-start;">
+												<div id = "unread_workflow_main" style="flex:1; display:flex; align-items: flex-start; font-size:12px;">
 												</div>
 										</div>
 								</div>
@@ -298,60 +297,54 @@
 	<!-- 중단 -->
 	
 	<!-- 최하단 -->
-	<div style="flex:0.8; display: flex; justify-content: space-between; margin-top: 10px;">
+	<div style="flex:0.6; display: flex; justify-content: space-between; margin-top: 10px;">
 	
 		<%@ include file="/resources/assets/inc/messenger.jsp" %>
 		
-		<div class="card-box md" style="height:530px !important; width:550px; display:flex; flex-direction: column;">
+		<div class="card-box md" style="height:500px !important; width:500px; display:flex; flex-direction: column;">
 			<div class="card">
 				<div class="card-header" style="flex:0.1;">
 				<h4 class="card-title">WORKFLOWS</h4>
 				</div>	
-				<div class="card-body" style="flex:0.9;">
-                    <div class="workflow_table" style="height:100%; overflow-x: hidden;">
-                      <table class="display table table-striped table-hover multi-filter-select" style="height:100%; overflow-y: auto;">
-                        <thead style="position: sticky; top: 0; z-index: 3 ; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);">
-                          <tr>
-                            <th style="width: 3%;">NUM</th>
-                            <th style="width: 3%;">TYPE</th>
-                            <th style="width: 50%;">TITLE</th>
-                            <th style="width: 18%;">RECEIVER</th>
-                            <th style="width: 3%;">STATUS</th>
-                            <th style="width: 23%;">DATE</th>
+				<div class="card-body" style="flex:0.9; width:100%;">
+                    <div class="workflow_table" style="width:100%; height:100%; overflow-x: hidden; border-collapse: collapse; table-layout: fixed;">
+                      <table class="display table table-striped table-hover multi-filter-select" style="width:485px; height:100%; overflow-y: auto;">
+                        <thead style="position: sticky; top: 0; z-index: 3 ; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); width:100%; font-size:12px;">
+                          <tr style="width:100%; padding-left:5px !important; padding-right:5px !important;">
+                            <th style="width: 5%; font-size:12px; padding-left:5px !important; padding-right:5px !important;">유형</th>
+                            <th style="width: 40%; font-size:12px; padding-left:5px !important; padding-right:5px !important;">제목</th>
+                            <th style="width: 5%; font-size:12px; padding-left:5px !important; padding-right:5px !important;">발신자</th>
+                            <th style="width: 20%; font-size:12px; padding-left:5px !important; padding-right:5px !important;">상태</th>
+                            <th style="width: 20%; font-size:12px; padding-left:5px !important; padding-right:5px !important;">수신일</th>
                           </tr>
                         </thead>
                         <tfoot>
                         </tfoot>
-                        <tbody class="workflow_modal">
+                        <tbody class="workflow_modal" style="width:100%;">
                           <c:forEach var="workflow" items="${receivedWorkflowList}">
-					        <tr>
-					            <td style="text-align: center;">
-					            	<a data-wf_code="${workflow.wf_code}" id="workflow_info">
-					            		${workflow.wf_code}
-					            	</a>
-					            </td>
-					            <td style="text-align: center;">
-						            <a data-wf_code="${workflow.wf_code}" id="workflow_info">
+					        <tr style="width:100%; padding:0 !important; height:20px !important;">
+					            <td style="text-align: center; font-size:10px; padding:0px !important; height:20px !important;">
+						            <a data-wf_code="${workflow.wf_code}" id="workflow_info" style="padding:0; height:20px;">
 						            	${workflow.wf_type}
 						            </a>
 						        </td>
-					            <td>
-						            <a data-wf_code="${workflow.wf_code}" id="workflow_info">
+					            <td style="font-size:10px; padding:0px !important; height:20px !important;">
+						            <a data-wf_code="${workflow.wf_code}" id="workflow_info" style="padding:0; height:20px;">
 			                        	${workflow.wf_title}
 			                        </a>
 		                        </td>
-					            <td style="text-align: center;">
-						            <a data-wf_code="${workflow.wf_code}" id="workflow_info">
+					            <td style="text-align: center; font-size:10px; padding:0px !important; height:20px !important;">
+						            <a data-wf_code="${workflow.wf_code}" id="workflow_info" style="padding:0; height:20px;">
 						            	${workflow.sender_name}
 						            </a>
 					            </td>
-					            <td style="text-align: center;">
-					            	<a data-wf_code="${workflow.wf_code}" id="workflow_info">
+					            <td style="text-align: center; font-size:10px; padding:0px !important; height:20px !important;">
+					            	<a data-wf_code="${workflow.wf_code}" id="workflow_info" style="padding:0; height:20px;">
 					            		${workflow.wf_status}
 					            	</a>
 					            </td>
-					            <td style="text-align: center;">
-					            	<a data-wf_code="${workflow.wf_code}" id="workflow_info">
+					            <td style="text-align: center; font-size:10px; padding:0px !important; height:20px !important;">
+					            	<a data-wf_code="${workflow.wf_code}" id="workflow_info" style="padding:0; height:20px;">
 					           			<fmt:formatDate value="${workflow.wf_create_date}" pattern="yy.MM.dd HH:mm" />
 					           		</a>
 					           	</td>
@@ -363,9 +356,9 @@
                  </div>
 			</div>
 		</div>
-		
+		<div style="height:500px !important; width:500px; display:flex; flex-direction: column; justify-content: flex-end;" >
 		<%@ include file="/resources/assets/inc/calendar.jsp" %>
-		
+		</div>
 	</div>
 	<!-- 최하단 -->
 </div>
@@ -422,19 +415,6 @@
 	$(document).on('click', '#easter_egg', function (e) {
 		$('#game').modal('show');
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	</script>
 	
