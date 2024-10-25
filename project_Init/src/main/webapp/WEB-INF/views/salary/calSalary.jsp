@@ -42,8 +42,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/plugins.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/kaiadmin.min.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/demo.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -215,7 +213,7 @@
                    "<option name='wf_receiver_2nd' value='2차 결재자'>2차 결재자</option>" +
                    "<option name='wf_receiver_3rd' value='3차 결재자'>3차 결재자</option></select> </td>" +
                    "<td style='text-align: center;'><button class='delete-btn' style='border:none;" +
-                   "background:none'>X</button></td>" +
+                   "background:none; color:red; font-weight: bold;'>X</button></td>" +
                    "<input type='hidden' value='"+$(this).closest('tr').find('td').eq(0).text() +"'></tr>";
                    $('#signTable tbody').prepend(row_move);
             	}
@@ -482,9 +480,6 @@
     <!-- Kaiadmin JS -->
     <script src="${pageContext.request.contextPath }/resources/assets/js/kaiadmin.min.js"></script>
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/setting-demo.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/demo.js"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

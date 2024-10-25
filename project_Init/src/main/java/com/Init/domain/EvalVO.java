@@ -1,5 +1,7 @@
 package com.Init.domain;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data

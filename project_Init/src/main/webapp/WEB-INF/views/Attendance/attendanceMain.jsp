@@ -71,8 +71,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/plugins.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/kaiadmin.min.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/demo.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -89,7 +87,7 @@
  
   <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">
+                  <div class="card-body">
                  <div class="card-title">근태관리</div>
 
 
@@ -1379,7 +1377,6 @@ function determineWorkStatus(checkInTime, checkOutTime) {
 
    </div>
                   <div class="card-body">
-                    
 
 <!------------------------------------------------------------------------------------------------------------------>
           </div>
@@ -1427,9 +1424,6 @@ function determineWorkStatus(checkInTime, checkOutTime) {
     <!-- Kaiadmin JS -->
     <script src="${pageContext.request.contextPath }/resources/assets/js/kaiadmin.min.js"></script>
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/setting-demo.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/demo.js"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

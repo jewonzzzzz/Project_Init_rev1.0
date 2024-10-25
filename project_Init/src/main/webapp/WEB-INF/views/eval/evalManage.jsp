@@ -42,8 +42,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/plugins.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/kaiadmin.min.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/demo.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -82,29 +80,8 @@
         <div class="row">
               <div class="col-md-11">
                 <div class="card">
-                  <div class="card-header">
-                    <div style="display: flex; justify-content:space-between;">
+                  <div class="card-header" style="display: flex; justify-content:space-between;">
 	                    <div class="card-title">성과관리(관리자)</div>
-	                  	<div style="margin-right: 10px;">
-	                    	<a href="/eval/evalCreate"><button class="btn btn-primary">신규등록</button></a>
-	                   	<form id="deleteSubmit" action="/eval/deleteEvalInfo" method="post" style="display: inline-block;">
-                    		<input type="hidden" id="inputForDelete" name="eval_id">
-                    		<button type="submit" class="btn btn-danger" id="deleteBtn" disabled>삭제하기</button>
-                    	</form>
-                    	<form id="reportEvalSubmit" action="/eval/updateEvalInfoToReport" method="post" style="display: inline-block;">
-                    		<input type="hidden" id="inputReportEval" name="eval_id">
-                    		<button type="submit" class="btn btn-primary" id="reportEvalBtn" disabled>성과보고</button>
-                    	</form>
-                    	<form id="startEvalSubmit" action="/eval/startEval" method="post" style="display: inline-block;">
-                    		<input type="hidden" id="inputStartEval" name="eval_id">
-                    		<button type="submit" class="btn btn-primary" id="startEvalBtn" disabled>평가시작</button>
-                    	</form>
-                    	<form id="endEvalSubmit" action="/eval/endEval" method="post" style="display: inline-block;">
-                    		<input type="hidden" id="inputEndEval" name="eval_id">
-                    		<button type="submit" class="btn btn-primary" id="endEvalBtn" disabled>평가종료</button>
-                    	</form>
-	                   	</div>
-                  	</div>
                   </div>
                   <div class="card-body" style="padding-top: 10px;">
                     <table id="basic-datatables"
@@ -138,6 +115,25 @@
                     </table>
                   </div>
                 </div>
+               <div style="gap:5px; display: flex; justify-content: flex-end;">
+                    	<a href="/eval/evalCreate"><button class="btn btn-primary">신규등록</button></a>
+                   	<form id="deleteSubmit" action="/eval/deleteEvalInfo" method="post" style="display: inline-block;">
+                   		<input type="hidden" id="inputForDelete" name="eval_id">
+                   		<button type="submit" class="btn btn-danger" id="deleteBtn" disabled>삭제하기</button>
+                   	</form>
+                   	<form id="reportEvalSubmit" action="/eval/updateEvalInfoToReport" method="post" style="display: inline-block;">
+                   		<input type="hidden" id="inputReportEval" name="eval_id">
+                   		<button type="submit" class="btn btn-primary" id="reportEvalBtn" disabled>성과보고</button>
+                   	</form>
+                   	<form id="startEvalSubmit" action="/eval/startEval" method="post" style="display: inline-block;">
+                   		<input type="hidden" id="inputStartEval" name="eval_id">
+                   		<button type="submit" class="btn btn-primary" id="startEvalBtn" disabled>평가시작</button>
+                   	</form>
+                   	<form id="endEvalSubmit" action="/eval/endEval" method="post" style="display: inline-block;">
+                   		<input type="hidden" id="inputEndEval" name="eval_id">
+                   		<button type="submit" class="btn btn-primary" id="endEvalBtn" disabled>평가종료</button>
+                   	</form>
+                 	</div>
               </div>
             </div>
             
@@ -381,9 +377,6 @@
     <!-- Kaiadmin JS -->
     <script src="${pageContext.request.contextPath }/resources/assets/js/kaiadmin.min.js"></script>
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/setting-demo.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/demo.js"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

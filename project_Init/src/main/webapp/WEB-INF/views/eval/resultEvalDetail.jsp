@@ -42,8 +42,16 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/plugins.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/kaiadmin.min.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/demo.css" />
+    <style>
+		.table th {
+		  min-width: 100px; /* 각 열의 최소 너비 설정 */
+		  text-align: center; /* 텍스트 중앙 정렬 */
+		  background-color: #f8f9fa;
+		}
+    </style>
+    
+    
+    
   </head>
   <body>
     <div class="wrapper">
@@ -177,7 +185,6 @@
                     </div>
             <input type="hidden" name="eval_his_id" value="${reportInfoForEval.eval_his_id }">
             <input type="hidden" name="evaluator" value="${evaluatorInfo.emp_id }">
-             </div>
           </form>
                  
         <script>
@@ -367,9 +374,6 @@
     <!-- Kaiadmin JS -->
     <script src="${pageContext.request.contextPath }/resources/assets/js/kaiadmin.min.js"></script>
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/setting-demo.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/demo.js"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

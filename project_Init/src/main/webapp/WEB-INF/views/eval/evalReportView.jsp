@@ -42,8 +42,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/plugins.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/kaiadmin.min.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/demo.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -126,7 +124,7 @@ ${checkHisInfo } --%>
               </div>
             </div>
             <input type="hidden" name="eval_id" value="${evalReportInfo.eval_id }">
-            <input type="hidden" name="emp_id" value="${emp_id }">
+            <input type="hidden" name="emp_id_eval" value="${emp_id }">
           </form>
           <form id="updateEvalForm" action="/eval/updateEvalReport" method="post">
           </form>
@@ -195,10 +193,10 @@ ${checkHisInfo } --%>
         	$('#updateEvalBtn').click(function(){
         		var updateEvalInfo = {
         				eval_id: $('input[name="eval_id"]').val(),
-        				emp_id:$('input[name="emp_id"]').val(),
+        				emp_id:$('input[name="emp_id_eval"]').val(),
         				content:$('#comment').val()
         		}
-        		
+        		console.log(updateEvalInfo);
         		$.ajax({
         			url:'/eval/updateEvalReport',
             		type: 'POST',
@@ -271,9 +269,6 @@ ${checkHisInfo } --%>
     <!-- Kaiadmin JS -->
     <script src="${pageContext.request.contextPath }/resources/assets/js/kaiadmin.min.js"></script>
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/setting-demo.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/demo.js"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

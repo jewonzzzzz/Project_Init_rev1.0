@@ -42,8 +42,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/plugins.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/kaiadmin.min.css" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/demo.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -90,7 +88,7 @@
                     <c:if test="${eduInfo.edu_list_status == '임시저장'}">
 		              <button type="submit" id="eduUpdateBtn" class="btn btn-primary">수정하기</button>
                     </c:if>
-		              <button type="button" class="btn btn-primary" onclick="history.back()">목록으로</button>
+		              <button id="backBtn" type="button" class="btn btn-primary" onclick="history.back()">목록으로</button>
 		            </div>
                     </div>
                   <div class="card-body">
@@ -188,6 +186,13 @@
         <script>
         $(document).ready(function (){
         	
+        	// 결재상태에 따른 목록으로 기능 변경
+        	var checkEduStatus = "${eduInfo.edu_list_status}";
+        	if(checkEduStatus === '임시저장'){
+        		$('#backBtn').attr('onclick',"location.href='/edu/eduManage'")
+        	}
+        	
+        	// 썸네일 변경 시 미리보기 설정
         	$('#edu_thumbnail').on('change', function(event){
         		const file = event.target.files[0]; // 업로드한 파일 가져오기
         	    const $preview = $('#thumbnail_preView'); // 미리보기 영역 선택
@@ -301,9 +306,6 @@
     <!-- Kaiadmin JS -->
     <script src="${pageContext.request.contextPath }/resources/assets/js/kaiadmin.min.js"></script>
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="${pageContext.request.contextPath }/resources/assets/js/setting-demo.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/assets/js/demo.js"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",
